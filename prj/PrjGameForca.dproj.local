@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2022/04/29 22:47:43.000.140,=C:\Users\Douglas\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2022/04/29 22:48:57.000.985,C:\jogo-da-forca\src\UnFormPrincipal.dfm=C:\Users\Douglas\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
-    <Transaction>2022/04/29 22:48:57.000.985,C:\jogo-da-forca\src\UnFormPrincipal.pas=C:\Users\Douglas\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2022/04/29 22:49:23.000.517,C:\jogo-da-forca\prj\PrjGameForca.dproj=C:\Users\Douglas\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-  </Transactions>
-</BorlandProject>
