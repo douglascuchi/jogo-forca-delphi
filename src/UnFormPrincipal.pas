@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.BaseImageCollection,
   Vcl.ImageCollection, Vcl.Buttons, System.ImageList, Vcl.ImgList, pngimage,
-  Vcl.StdCtrls, Vcl.Menus;
+  Vcl.StdCtrls, Vcl.Menus, Vcl.Imaging.jpeg;
 
 type
   TForm2 = class(TForm)
@@ -46,6 +46,9 @@ type
     SpeedButton23: TSpeedButton;
     SpeedButton29: TSpeedButton;
     SpeedButton30: TSpeedButton;
+    Image2: TImage;
+    Edit1: TEdit;
+    Button1: TButton;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
@@ -65,28 +68,28 @@ var
   count: Integer;
 begin
    Image1.Picture.LoadFromFile
-        ('C:\game-forca\bare\img\nada.png');
+        ('C:\game-forca\jogo-forca-delphi\img\nada.png');
 
   count := 6;
   case count of
     1:
       Image1.Picture.LoadFromFile
-        ('C:\game-forca\bare\img\cabeca.png');
+        ('C:\game-forca\jogo-forca-delphi\img\cabeca.png');
     2:
       Image1.Picture.LoadFromFile
-        ('C:\game-forca\bare\img\corpo.png');
+        ('C:\game-forca\jogo-forca-delphi\img\corpo.png');
     3:
       Image1.Picture.LoadFromFile
-        ('C:\game-forca\bare\img\braco-esq.png');
+        ('C:\game-forca\jogo-forca-delphi\img\braco-esq.png');
     4:
       Image1.Picture.LoadFromFile
-        ('C:\game-forca\bare\img\dois-bracos.png');
+        ('C:\game-forca\jogo-forca-delphi\img\dois-bracos.png');
     5:
       Image1.Picture.LoadFromFile
-        ('C:\game-forca\bare\img\perna-esq.png');
+        ('C:\game-forca\jogo-forca-delphi\img\perna-esq.png');
     6:
       Image1.Picture.LoadFromFile
-        ('C:\game-forca\bare\img\completo.png');
+        ('C:\game-forca\jogo-forca-delphi\img\completo.png');
 
   end;
 
