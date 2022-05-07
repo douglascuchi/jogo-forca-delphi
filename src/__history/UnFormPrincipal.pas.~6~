@@ -47,7 +47,7 @@ type
     btnG: TSpeedButton;
     btnA: TSpeedButton;
     Edit1: TEdit;
-    btnChutarFrase: TButton;
+    Button1: TButton;
     imgFundo: TImage;
     pnlBaseFundo: TPanel;
     procedure FormShow(Sender: TObject);

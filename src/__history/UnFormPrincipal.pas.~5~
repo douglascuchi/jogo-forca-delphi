@@ -47,7 +47,7 @@ type
     btnG: TSpeedButton;
     btnA: TSpeedButton;
     Edit1: TEdit;
-    btnChutarFrase: TButton;
+    Button1: TButton;
     imgFundo: TImage;
     pnlBaseFundo: TPanel;
     procedure FormShow(Sender: TObject);
@@ -71,7 +71,7 @@ begin
    imgBonecoForca.Picture.LoadFromFile
         ('C:\game-forca\jogo-forca-delphi\img\nada.png');
 
-  count := 6;
+  count := 0;
   case count of
     1:
       imgBonecoForca.Picture.LoadFromFile

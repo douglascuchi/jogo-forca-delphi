@@ -2,11 +2,9 @@ object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'Jogo da forca'
-  ClientHeight = 496
-  ClientWidth = 668
+  ClientHeight = 476
+  ClientWidth = 777
   Color = clBtnFace
-  Constraints.MinHeight = 555
-  Constraints.MinWidth = 684
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -20,16 +18,18 @@ object Form2: TForm2
   object pnlBaseFundo: TPanel
     Left = 0
     Top = 0
-    Width = 668
-    Height = 496
+    Width = 777
+    Height = 476
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 804
+    ExplicitHeight = 427
     object imgFundo: TImage
       Left = 0
       Top = 0
-      Width = 668
-      Height = 496
+      Width = 777
+      Height = 476
       Align = alClient
       Picture.Data = {
         0A544A504547496D6167653B570100FFD8FFE000104A46494600010101006000
@@ -2779,7 +2779,9 @@ object Form2: TForm2
         D587DC0CF6739C7E1525AAEE634515DB2D80D5B03B21AB68DD1BF1A28AD72DFE
         39D585F88B69237979CD45336E6C51457B18C8AFAC23BDFF00108635FDE13F85
         494514E5B9E9F43FFFD9}
-      ExplicitLeft = 1
+      ExplicitTop = -1
+      ExplicitWidth = 746
+      ExplicitHeight = 427
     end
     object btnA: TSpeedButton
       Left = 311
@@ -2803,28 +2805,28 @@ object Form2: TForm2
       Caption = 'C'
     end
     object btnD: TSpeedButton
-      Left = 420
+      Left = 418
       Top = 29
       Width = 38
       Height = 29
       Caption = 'D'
     end
     object btnE: TSpeedButton
-      Left = 456
+      Left = 454
       Top = 29
       Width = 38
       Height = 29
       Caption = 'E'
     end
     object btnF: TSpeedButton
-      Left = 493
+      Left = 491
       Top = 29
       Width = 38
       Height = 29
       Caption = 'F'
     end
     object btnG: TSpeedButton
-      Left = 530
+      Left = 528
       Top = 29
       Width = 38
       Height = 29
@@ -2852,28 +2854,28 @@ object Form2: TForm2
       Caption = 'J'
     end
     object btnK: TSpeedButton
-      Left = 420
+      Left = 418
       Top = 57
       Width = 38
       Height = 29
       Caption = 'K'
     end
     object btnL: TSpeedButton
-      Left = 456
+      Left = 454
       Top = 57
       Width = 38
       Height = 29
       Caption = 'L'
     end
     object btnM: TSpeedButton
-      Left = 493
+      Left = 491
       Top = 57
       Width = 38
       Height = 29
       Caption = 'M'
     end
     object btnN: TSpeedButton
-      Left = 530
+      Left = 528
       Top = 57
       Width = 38
       Height = 29
@@ -2901,28 +2903,28 @@ object Form2: TForm2
       Caption = 'Q'
     end
     object btnR: TSpeedButton
-      Left = 420
+      Left = 418
       Top = 85
       Width = 38
       Height = 29
       Caption = 'R'
     end
     object btnS: TSpeedButton
-      Left = 456
+      Left = 454
       Top = 85
       Width = 38
       Height = 29
       Caption = 'S'
     end
     object btnT: TSpeedButton
-      Left = 493
+      Left = 491
       Top = 85
       Width = 38
       Height = 29
       Caption = 'T'
     end
     object btnU: TSpeedButton
-      Left = 530
+      Left = 528
       Top = 85
       Width = 38
       Height = 29
@@ -2936,7 +2938,7 @@ object Form2: TForm2
       Caption = 'V'
     end
     object btnW: TSpeedButton
-      Left = 420
+      Left = 418
       Top = 113
       Width = 38
       Height = 29
@@ -2958,25 +2960,25 @@ object Form2: TForm2
     end
     object imgBonecoForca: TImage
       Left = 0
-      Top = 148
+      Top = 124
       Width = 209
       Height = 331
       Align = alCustom
     end
     object Edit1: TEdit
-      Left = 392
+      Left = 396
       Top = 232
       Width = 121
       Height = 21
       TabOrder = 0
       Text = 'Edit1'
     end
-    object btnChutarFrase: TButton
-      Left = 515
+    object Button1: TButton
+      Left = 523
       Top = 230
       Width = 75
       Height = 25
-      Caption = 'Enviar'
+      Caption = 'Button1'
       TabOrder = 1
     end
   end
