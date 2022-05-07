@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/05/06 19:19:59.000.373,=C:\game-forca\jogo-forca-delphi\prj\Unit1.pas</Transaction>
+    <Transaction>2022/05/06 20:20:43.000.281,C:\game-forca\jogo-forca-delphi\src\UnTelaInicio.pas=C:\game-forca\jogo-forca-delphi\prj\Unit1.pas</Transaction>
+    <Transaction>2022/05/06 20:20:43.000.285,C:\game-forca\jogo-forca-delphi\src\UnTelaInicio.dfm=C:\game-forca\jogo-forca-delphi\prj\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
