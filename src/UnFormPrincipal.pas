@@ -7,20 +7,12 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.BaseImageCollection,
   Vcl.ImageCollection, Vcl.Buttons, System.ImageList, Vcl.ImgList, pngimage,
-  Vcl.StdCtrls, Vcl.Menus, Vcl.Imaging.jpeg;
+  Vcl.StdCtrls, Vcl.Menus, Vcl.Imaging.jpeg, Vcl.Mask;
 
 type
   TForm2 = class(TForm)
     imgBonecoForca: TImage;
     ImageList1: TImageList;
-    MainMenu1: TMainMenu;
-    este1: TMenuItem;
-    teste1: TMenuItem;
-    N11: TMenuItem;
-    N21: TMenuItem;
-    N31: TMenuItem;
-    N12: TMenuItem;
-    N22: TMenuItem;
     btnB: TSpeedButton;
     btnV: TSpeedButton;
     btnC: TSpeedButton;
@@ -46,15 +38,57 @@ type
     btnF: TSpeedButton;
     btnG: TSpeedButton;
     btnA: TSpeedButton;
-    Edit1: TEdit;
-    btnChutarFrase: TButton;
-    imgFundo: TImage;
     pnlBaseFundo: TPanel;
+    edtPalavra: TEdit;
+    btnZ: TSpeedButton;
+    Label2: TLabel;
+    Edit1: TEdit;
+    btnChutarFrase: TSpeedButton;
+    LblPalavraRevelada: TLabel;
+    Image1: TImage;
+    Button1: TButton;
+    procedure btnBClick(Sender: TObject);
+    procedure btnCClick(Sender: TObject);
+    procedure btnDClick(Sender: TObject);
+    procedure btnEClick(Sender: TObject);
+    procedure btnFClick(Sender: TObject);
+    procedure btnGClick(Sender: TObject);
+    procedure btnHClick(Sender: TObject);
+    procedure btnIClick(Sender: TObject);
+    procedure btnJClick(Sender: TObject);
+    procedure btnKClick(Sender: TObject);
+    procedure btnLClick(Sender: TObject);
+    procedure btnMClick(Sender: TObject);
+    procedure btnNClick(Sender: TObject);
+    procedure btnOClick(Sender: TObject);
+    procedure btnPClick(Sender: TObject);
+    procedure btnQClick(Sender: TObject);
+    procedure btnRClick(Sender: TObject);
+    procedure btnSClick(Sender: TObject);
+    procedure btnTClick(Sender: TObject);
+    procedure btnUClick(Sender: TObject);
+    procedure btnVClick(Sender: TObject);
+    procedure btnWClick(Sender: TObject);
+    procedure btnXClick(Sender: TObject);
+    procedure btnYClick(Sender: TObject);
+    procedure btnZClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnAClick(Sender: TObject);
+    procedure btnChutarFraseClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+
   private
     { Private declarations }
+    Palavra: array [1 .. 25] of string;
+    Resultado: array [1 .. 25] of string;
+    GuardaResultado: array [1 .. 25] of string;
+    contErros: integer;
+    Procedure ComparaResultado(letra: string);
+    Procedure novoJogo;
+
   public
     { Public declarations }
+
   end;
 
 var
@@ -62,36 +96,261 @@ var
 
 implementation
 
+uses
+  Unit3;
+
 {$R *.dfm}
 
-procedure TForm2.FormShow(Sender: TObject);
-var
-  count: Integer;
+procedure TForm2.btnAClick(Sender: TObject);
 begin
-   imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\nada.png');
+  btnA.Enabled := false;
+  ComparaResultado('a');
+end;
 
-  count := 6;
-  case count of
+procedure TForm2.btnBClick(Sender: TObject);
+begin
+  ComparaResultado('b');
+  btnB.Enabled := false;
+end;
+
+procedure TForm2.btnCClick(Sender: TObject);
+begin
+  ComparaResultado('c');
+  btnC.Enabled := false;
+end;
+
+procedure TForm2.btnChutarFraseClick(Sender: TObject);
+var
+  i: integer;
+begin
+  for i := 1 to length(Edit1.Text) do
+  begin
+    Palavra[i] := copy(Edit1.Text, i, 1);
+    edtPalavra.Text := edtPalavra.Text + '* ';
+  end;
+end;
+
+procedure TForm2.btnDClick(Sender: TObject);
+begin
+  ComparaResultado('d');
+  btnD.Enabled := false;
+end;
+
+procedure TForm2.btnEClick(Sender: TObject);
+begin
+  ComparaResultado('e');
+  btnE.Enabled := false;
+end;
+
+procedure TForm2.btnFClick(Sender: TObject);
+begin
+  ComparaResultado('f');
+  btnF.Enabled := false;
+end;
+
+procedure TForm2.btnGClick(Sender: TObject);
+begin
+  ComparaResultado('g');
+  btnG.Enabled := false;
+end;
+
+procedure TForm2.btnHClick(Sender: TObject);
+begin
+  ComparaResultado('h');
+  btnH.Enabled := false;
+end;
+
+procedure TForm2.btnKClick(Sender: TObject);
+begin
+  ComparaResultado('k');
+  btnK.Enabled := false;
+end;
+
+procedure TForm2.btnYClick(Sender: TObject);
+begin
+  ComparaResultado('y');
+  btnY.Enabled := false;
+end;
+
+procedure TForm2.btnWClick(Sender: TObject);
+begin
+  ComparaResultado('w');
+  btnW.Enabled := false;
+end;
+
+procedure TForm2.btnIClick(Sender: TObject);
+begin
+  ComparaResultado('');
+  btnI.Enabled := false;
+end;
+
+procedure TForm2.btnJClick(Sender: TObject);
+begin
+  ComparaResultado('J');
+  btnJ.Enabled := false;
+end;
+
+procedure TForm2.btnLClick(Sender: TObject);
+begin
+  ComparaResultado('l');
+  btnL.Enabled := false;
+end;
+
+procedure TForm2.btnMClick(Sender: TObject);
+begin
+  ComparaResultado('l');
+  btnM.Enabled := false;
+end;
+
+procedure TForm2.btnNClick(Sender: TObject);
+begin
+  ComparaResultado('n');
+  btnN.Enabled := false;
+end;
+
+procedure TForm2.btnOClick(Sender: TObject);
+begin
+  ComparaResultado('o');
+  btnO.Enabled := false;
+end;
+
+procedure TForm2.btnPClick(Sender: TObject);
+begin
+  ComparaResultado('p');
+  btnP.Enabled := false;
+end;
+
+procedure TForm2.btnQClick(Sender: TObject);
+begin
+  ComparaResultado('q');
+  btnQ.Enabled := false;
+end;
+
+procedure TForm2.btnRClick(Sender: TObject);
+begin
+  ComparaResultado('r');
+  btnR.Enabled := false;
+end;
+
+procedure TForm2.btnSClick(Sender: TObject);
+begin
+  ComparaResultado('s');
+  btnS.Enabled := false;
+end;
+
+procedure TForm2.btnTClick(Sender: TObject);
+begin
+  ComparaResultado('t');
+  btnT.Enabled := false;
+end;
+
+procedure TForm2.btnUClick(Sender: TObject);
+begin
+  ComparaResultado('u');
+  btnU.Enabled := false;
+end;
+
+procedure TForm2.btnVClick(Sender: TObject);
+begin
+  ComparaResultado('v');
+  btnV.Enabled := false;
+end;
+
+procedure TForm2.btnXClick(Sender: TObject);
+begin
+  ComparaResultado('x');
+  btnX.Enabled := false;
+end;
+
+procedure TForm2.btnZClick(Sender: TObject);
+begin
+  ComparaResultado('z');
+  btnZ.Enabled := false;
+end;
+
+procedure TForm2.Button1Click(Sender: TObject);
+begin
+  Form3.Show;
+end;
+
+procedure TForm2.novoJogo;
+begin
+  contErros := 0;
+  imgBonecoForca.Picture.LoadFromFile
+    ('C:\jogo-forca\jogo-forca-delphi\img\nada.png');
+  Edit1.SetFocus;
+end;
+
+procedure TForm2.FormShow(Sender: TObject);
+begin
+  LblPalavraRevelada.Visible := false;
+  Label2.Visible := false;
+  novoJogo;
+end;
+
+Procedure TForm2.ComparaResultado(letra: String);
+var
+  i: integer;
+  achou, terminou: boolean;
+begin
+  achou := false;
+  terminou := true;
+
+  for i := 1 to length(Edit1.Text) do
+  begin
+    If (Palavra[i] = letra) then
+    begin
+      Resultado[i] := letra;
+      GuardaResultado[i] := letra;
+      achou := true;
+    end
+    else if (GuardaResultado[i] = '') or (GuardaResultado[i] = '* ') then
+      GuardaResultado[i] := '*'
+  end;
+
+  if achou = false then
+    contErros := contErros + 1;
+
+  edtPalavra.Text := '';
+
+  for i := 1 to length(Edit1.Text) do
+  begin
+    edtPalavra.Text := edtPalavra.Text + GuardaResultado[i];
+    if GuardaResultado[i] = '*' then
+      terminou := false;
+  end;
+
+  case contErros of
     1:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\cabeca.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\cabeca.png');
     2:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\corpo.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\corpo.png');
     3:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\braco-esq.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\braco-esq.png');
     4:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\dois-bracos.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\dois-bracos.png');
     5:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\perna-esq.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\perna-esq.png');
     6:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\completo.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\completo.png');
+  end;
 
+  if contErros = 6 then
+  begin
+    ShowMessage('Errou');
+    Label2.Caption := Edit1.Text;
+    LblPalavraRevelada.Visible := true;
+    Label2.Visible := true;
+  end
+  else if terminou = true then
+  begin
+    ShowMessage('Acertou');
   end;
 
 end;

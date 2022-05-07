@@ -1323,7 +1323,7 @@ object Form1: TForm1
     ParentFont = False
   end
   object SpeedButton2: TSpeedButton
-    Left = 176
+    Left = 174
     Top = 264
     Width = 239
     Height = 46
