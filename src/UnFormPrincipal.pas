@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.BaseImageCollection,
   Vcl.ImageCollection, Vcl.Buttons, System.ImageList, Vcl.ImgList, pngimage,
-  Vcl.StdCtrls, Vcl.Menus, Vcl.Imaging.jpeg;
+  Vcl.StdCtrls, Vcl.Menus, Vcl.Imaging.jpeg, UnTelaInicio;
 
 type
   TForm2 = class(TForm)
@@ -49,7 +49,9 @@ type
     Image2: TImage;
     Edit1: TEdit;
     Button1: TButton;
+    Button2: TButton;
     procedure FormShow(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,6 +65,11 @@ implementation
 
 {$R *.dfm}
 
+procedure TForm2.Button2Click(Sender: TObject);
+begin
+Form1.Show;
+end;
+
 procedure TForm2.FormShow(Sender: TObject);
 var
   count: Integer;
@@ -70,7 +77,7 @@ begin
    Image1.Picture.LoadFromFile
         ('C:\game-forca\jogo-forca-delphi\img\nada.png');
 
-  count := 6;
+  count := 1;
   case count of
     1:
       Image1.Picture.LoadFromFile
