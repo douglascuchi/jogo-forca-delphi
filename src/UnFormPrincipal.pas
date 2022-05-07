@@ -11,7 +11,7 @@ uses
 
 type
   TForm2 = class(TForm)
-    Image1: TImage;
+    imgBonecoForca: TImage;
     ImageList1: TImageList;
     MainMenu1: TMainMenu;
     este1: TMenuItem;
@@ -21,34 +21,35 @@ type
     N31: TMenuItem;
     N12: TMenuItem;
     N22: TMenuItem;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
-    SpeedButton5: TSpeedButton;
-    SpeedButton6: TSpeedButton;
-    SpeedButton7: TSpeedButton;
-    SpeedButton8: TSpeedButton;
-    SpeedButton9: TSpeedButton;
-    SpeedButton10: TSpeedButton;
-    SpeedButton11: TSpeedButton;
-    SpeedButton12: TSpeedButton;
-    SpeedButton13: TSpeedButton;
-    SpeedButton14: TSpeedButton;
-    SpeedButton15: TSpeedButton;
-    SpeedButton16: TSpeedButton;
-    SpeedButton17: TSpeedButton;
-    SpeedButton18: TSpeedButton;
-    SpeedButton19: TSpeedButton;
-    SpeedButton20: TSpeedButton;
-    SpeedButton21: TSpeedButton;
-    SpeedButton22: TSpeedButton;
-    SpeedButton23: TSpeedButton;
-    SpeedButton29: TSpeedButton;
-    SpeedButton30: TSpeedButton;
-    Image2: TImage;
+    btnB: TSpeedButton;
+    btnV: TSpeedButton;
+    btnC: TSpeedButton;
+    btnO: TSpeedButton;
+    btnU: TSpeedButton;
+    btnH: TSpeedButton;
+    btnP: TSpeedButton;
+    btnI: TSpeedButton;
+    btnD: TSpeedButton;
+    btnJ: TSpeedButton;
+    btnK: TSpeedButton;
+    btnT: TSpeedButton;
+    btnL: TSpeedButton;
+    btnM: TSpeedButton;
+    btnN: TSpeedButton;
+    btnE: TSpeedButton;
+    btnQ: TSpeedButton;
+    btnR: TSpeedButton;
+    btnS: TSpeedButton;
+    btnX: TSpeedButton;
+    btnW: TSpeedButton;
+    btnY: TSpeedButton;
+    btnF: TSpeedButton;
+    btnG: TSpeedButton;
+    btnA: TSpeedButton;
     Edit1: TEdit;
-    Button1: TButton;
+    btnChutarFrase: TButton;
+    imgFundo: TImage;
+    pnlBaseFundo: TPanel;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
@@ -67,28 +68,28 @@ procedure TForm2.FormShow(Sender: TObject);
 var
   count: Integer;
 begin
-   Image1.Picture.LoadFromFile
+   imgBonecoForca.Picture.LoadFromFile
         ('C:\game-forca\jogo-forca-delphi\img\nada.png');
 
   count := 6;
   case count of
     1:
-      Image1.Picture.LoadFromFile
+      imgBonecoForca.Picture.LoadFromFile
         ('C:\game-forca\jogo-forca-delphi\img\cabeca.png');
     2:
-      Image1.Picture.LoadFromFile
+      imgBonecoForca.Picture.LoadFromFile
         ('C:\game-forca\jogo-forca-delphi\img\corpo.png');
     3:
-      Image1.Picture.LoadFromFile
+      imgBonecoForca.Picture.LoadFromFile
         ('C:\game-forca\jogo-forca-delphi\img\braco-esq.png');
     4:
-      Image1.Picture.LoadFromFile
+      imgBonecoForca.Picture.LoadFromFile
         ('C:\game-forca\jogo-forca-delphi\img\dois-bracos.png');
     5:
-      Image1.Picture.LoadFromFile
+      imgBonecoForca.Picture.LoadFromFile
         ('C:\game-forca\jogo-forca-delphi\img\perna-esq.png');
     6:
-      Image1.Picture.LoadFromFile
+      imgBonecoForca.Picture.LoadFromFile
         ('C:\game-forca\jogo-forca-delphi\img\completo.png');
 
   end;
