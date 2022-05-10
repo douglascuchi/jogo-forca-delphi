@@ -467,7 +467,6 @@ object Form2: TForm2
       Height = 25
       Caption = 'Button1'
       TabOrder = 0
-      OnClick = Button1Click
     end
   end
   object edtPalavra: TEdit
@@ -477,6 +476,7 @@ object Form2: TForm2
     Height = 21
     BevelOuter = bvNone
     BorderStyle = bsNone
+    CharCase = ecUpperCase
     TabOrder = 1
   end
   object Edit1: TEdit
@@ -484,7 +484,7 @@ object Form2: TForm2
     Top = 232
     Width = 121
     Height = 21
-    CharCase = ecLowerCase
+    CharCase = ecUpperCase
     PasswordChar = '*'
     TabOrder = 2
   end

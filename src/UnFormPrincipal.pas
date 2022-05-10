@@ -75,7 +75,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnAClick(Sender: TObject);
     procedure btnChutarFraseClick(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -96,26 +95,26 @@ var
 
 implementation
 
-uses
-  Unit3;
+//uses
+//  Unit3;
 
 {$R *.dfm}
 
 procedure TForm2.btnAClick(Sender: TObject);
 begin
   btnA.Enabled := false;
-  ComparaResultado('a');
+  ComparaResultado('A');
 end;
 
 procedure TForm2.btnBClick(Sender: TObject);
 begin
-  ComparaResultado('b');
+  ComparaResultado('B');
   btnB.Enabled := false;
 end;
 
 procedure TForm2.btnCClick(Sender: TObject);
 begin
-  ComparaResultado('c');
+  ComparaResultado('C');
   btnC.Enabled := false;
 end;
 
@@ -132,55 +131,55 @@ end;
 
 procedure TForm2.btnDClick(Sender: TObject);
 begin
-  ComparaResultado('d');
+  ComparaResultado('D');
   btnD.Enabled := false;
 end;
 
 procedure TForm2.btnEClick(Sender: TObject);
 begin
-  ComparaResultado('e');
+  ComparaResultado('E');
   btnE.Enabled := false;
 end;
 
 procedure TForm2.btnFClick(Sender: TObject);
 begin
-  ComparaResultado('f');
+  ComparaResultado('F');
   btnF.Enabled := false;
 end;
 
 procedure TForm2.btnGClick(Sender: TObject);
 begin
-  ComparaResultado('g');
+  ComparaResultado('G');
   btnG.Enabled := false;
 end;
 
 procedure TForm2.btnHClick(Sender: TObject);
 begin
-  ComparaResultado('h');
+  ComparaResultado('H');
   btnH.Enabled := false;
 end;
 
 procedure TForm2.btnKClick(Sender: TObject);
 begin
-  ComparaResultado('k');
+  ComparaResultado('K');
   btnK.Enabled := false;
 end;
 
 procedure TForm2.btnYClick(Sender: TObject);
 begin
-  ComparaResultado('y');
+  ComparaResultado('Y');
   btnY.Enabled := false;
 end;
 
 procedure TForm2.btnWClick(Sender: TObject);
 begin
-  ComparaResultado('w');
+  ComparaResultado('W');
   btnW.Enabled := false;
 end;
 
 procedure TForm2.btnIClick(Sender: TObject);
 begin
-  ComparaResultado('');
+  ComparaResultado('I');
   btnI.Enabled := false;
 end;
 
@@ -192,92 +191,87 @@ end;
 
 procedure TForm2.btnLClick(Sender: TObject);
 begin
-  ComparaResultado('l');
+  ComparaResultado('L');
   btnL.Enabled := false;
 end;
 
 procedure TForm2.btnMClick(Sender: TObject);
 begin
-  ComparaResultado('l');
+  ComparaResultado('M');
   btnM.Enabled := false;
 end;
 
 procedure TForm2.btnNClick(Sender: TObject);
 begin
-  ComparaResultado('n');
+  ComparaResultado('N');
   btnN.Enabled := false;
 end;
 
 procedure TForm2.btnOClick(Sender: TObject);
 begin
-  ComparaResultado('o');
+  ComparaResultado('O');
   btnO.Enabled := false;
 end;
 
 procedure TForm2.btnPClick(Sender: TObject);
 begin
-  ComparaResultado('p');
+  ComparaResultado('P');
   btnP.Enabled := false;
 end;
 
 procedure TForm2.btnQClick(Sender: TObject);
 begin
-  ComparaResultado('q');
+  ComparaResultado('Q');
   btnQ.Enabled := false;
 end;
 
 procedure TForm2.btnRClick(Sender: TObject);
 begin
-  ComparaResultado('r');
+  ComparaResultado('R');
   btnR.Enabled := false;
 end;
 
 procedure TForm2.btnSClick(Sender: TObject);
 begin
-  ComparaResultado('s');
+  ComparaResultado('S');
   btnS.Enabled := false;
 end;
 
 procedure TForm2.btnTClick(Sender: TObject);
 begin
-  ComparaResultado('t');
+  ComparaResultado('T');
   btnT.Enabled := false;
 end;
 
 procedure TForm2.btnUClick(Sender: TObject);
 begin
-  ComparaResultado('u');
+  ComparaResultado('U');
   btnU.Enabled := false;
 end;
 
 procedure TForm2.btnVClick(Sender: TObject);
 begin
-  ComparaResultado('v');
+  ComparaResultado('V');
   btnV.Enabled := false;
 end;
 
 procedure TForm2.btnXClick(Sender: TObject);
 begin
-  ComparaResultado('x');
+  ComparaResultado('X');
   btnX.Enabled := false;
 end;
 
 procedure TForm2.btnZClick(Sender: TObject);
 begin
-  ComparaResultado('z');
+  ComparaResultado('Z');
   btnZ.Enabled := false;
-end;
-
-procedure TForm2.Button1Click(Sender: TObject);
-begin
-  Form3.Show;
 end;
 
 procedure TForm2.novoJogo;
 begin
   contErros := 0;
   imgBonecoForca.Picture.LoadFromFile
-    ('C:\jogo-forca\jogo-forca-delphi\img\nada.png');
+    ('C:\game-forca\jogo-forca-delphi\img\nada.png');
   Edit1.SetFocus;
 end;
 
@@ -323,22 +317,22 @@ begin
   case contErros of
     1:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\cabeca.png');
+        ('C:\game-forca\jogo-forca-delphi\img\cabeca.png');
     2:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\corpo.png');
+        ('C:\game-forca\jogo-forca-delphi\img\corpo.png');
     3:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\braco-esq.png');
+        ('C:\game-forca\jogo-forca-delphi\img\braco-esq.png');
     4:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\dois-bracos.png');
+        ('C:\game-forca\jogo-forca-delphi\img\dois-bracos.png');
     5:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\perna-esq.png');
+        ('C:\game-forca\jogo-forca-delphi\img\perna-esq.png');
     6:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\completo.png');
+        ('C:\game-forca\jogo-forca-delphi\img\completo.png');
   end;
 
   if contErros = 6 then
