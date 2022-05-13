@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.BaseImageCollection,
   Vcl.ImageCollection, Vcl.Buttons, System.ImageList, Vcl.ImgList, pngimage,
-  Vcl.StdCtrls, Vcl.Menus, Vcl.Imaging.jpeg, Vcl.Mask;
+  Vcl.StdCtrls, Vcl.Menus, Vcl.Imaging.jpeg, Vcl.Mask, UnTelaInicio;
 
 type
   TForm2 = class(TForm)
@@ -75,6 +75,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnAClick(Sender: TObject);
     procedure btnChutarFraseClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -265,6 +266,11 @@ procedure TForm2.btnZClick(Sender: TObject);
 begin
   ComparaResultado('Z');
   btnZ.Enabled := false;
+end;
+
+procedure TForm2.Button1Click(Sender: TObject);
+begin
+Form1.Show;
 end;
 
 procedure TForm2.novoJogo;
