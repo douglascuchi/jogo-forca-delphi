@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
+  System.Classes, Vcl.Graphics, System.StrUtils,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.BaseImageCollection,
   Vcl.ImageCollection, Vcl.Buttons, System.ImageList, Vcl.ImgList, pngimage,
   Vcl.StdCtrls, Vcl.Menus, Vcl.Imaging.jpeg, Vcl.Mask, UnTelaInicio;
@@ -42,11 +42,19 @@ type
     edtPalavra: TEdit;
     btnZ: TSpeedButton;
     Label2: TLabel;
-    Edit1: TEdit;
-    btnChutarFrase: TSpeedButton;
+    edtPalavraSecreta: TEdit;
+    btnJogar: TSpeedButton;
     LblPalavraRevelada: TLabel;
     Image1: TImage;
     Button1: TButton;
+    pnlLetras: TPanel;
+    edtChutarPalavra: TEdit;
+    btnChutarPalavra: TSpeedButton;
+    lblJogador1: TLabel;
+    lblJogador2: TLabel;
+    edtJogador1: TEdit;
+    edtJogador2: TEdit;
+    Label1: TLabel;
     procedure btnBClick(Sender: TObject);
     procedure btnCClick(Sender: TObject);
     procedure btnDClick(Sender: TObject);
@@ -74,8 +82,9 @@ type
     procedure btnZClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnAClick(Sender: TObject);
-    procedure btnChutarFraseClick(Sender: TObject);
+    procedure btnJogarClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure btnChutarPalavraClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -83,8 +92,14 @@ type
     Resultado: array [1 .. 25] of string;
     GuardaResultado: array [1 .. 25] of string;
     contErros: integer;
+    PontosJogador1: integer;
+    PontosJogador2: integer;
+    JogadorAtual: integer;
     Procedure ComparaResultado(letra: string);
     Procedure novoJogo;
+    Procedure Ganhou(AIdJogador: integer; SeChutou: Boolean);
+    procedure ControlaCampos;
+    function VerificaSeGanhou(AIdJogador: integer): Boolean;  /// ////falta
 
   public
     { Public declarations }
@@ -96,8 +111,8 @@ var
 
 implementation
 
-//uses
-//  Unit3;
+// uses
+// Unit3;
 
 {$R *.dfm}
 
@@ -119,13 +134,28 @@ begin
   btnC.Enabled := false;
 end;
 
-procedure TForm2.btnChutarFraseClick(Sender: TObject);
+procedure TForm2.btnChutarPalavraClick(Sender: TObject);
+begin
+  if (edtPalavraSecreta.Text = edtChutarPalavra.Text) then
+  begin
+    Ganhou(JogadorAtual, true);
+    edtPalavra.Text := edtPalavraSecreta.Text;
+  end;
+
+end;
+
+procedure TForm2.btnJogarClick(Sender: TObject);
 var
   i: integer;
 begin
-  for i := 1 to length(Edit1.Text) do
+  pnlLetras.Enabled := True;
+  btnChutarPalavra.Visible := true;
+  edtChutarPalavra.Visible := true;
+  btnJogar.Visible := false;
+  edtPalavraSecreta.Visible := false;
+  for i := 1 to length(edtPalavraSecreta.Text) do
   begin
-    Palavra[i] := copy(Edit1.Text, i, 1);
+    Palavra[i] := copy(edtPalavraSecreta.Text, i, 1);
     edtPalavra.Text := edtPalavra.Text + '* ';
   end;
 end;
@@ -270,33 +300,85 @@ end;
 
 procedure TForm2.Button1Click(Sender: TObject);
 begin
-Form1.Show;
+  Form1.Show;
 end;
 
 procedure TForm2.novoJogo;
 begin
-  contErros := 0;
-  imgBonecoForca.Picture.LoadFromFile
-    ('C:\game-forca\jogo-forca-delphi\img\nada.png');
-  Edit1.SetFocus;
+  ControlaCampos;
+  if JogadorAtual = 1 then
+  begin
+    lblJogador1.Font.Color := clRed;
+    lblJogador2.Font.Color := clWindow;
+  end
+  else
+  begin
+    lblJogador2.Font.Color := clRed;
+    lblJogador1.Font.Color := clWindow;
+  end;
+end;
+
+function TForm2.VerificaSeGanhou(AIdJogador: integer): Boolean;
+begin
+  /// ///////falta
 end;
 
 procedure TForm2.FormShow(Sender: TObject);
 begin
   LblPalavraRevelada.Visible := false;
+  JogadorAtual := 0;
   Label2.Visible := false;
   novoJogo;
+end;
+
+procedure TForm2.Ganhou(AIdJogador: integer; SeChutou: Boolean);
+var
+  vPontos: integer;
+begin
+  if SeChutou then
+  begin
+    vPontos := 150;
+    if AIdJogador = 1 then
+    begin
+      PontosJogador1 := PontosJogador1 + vPontos;
+      edtJogador1.Text := IntToStr(PontosJogador1);
+    end
+    else
+    begin
+      PontosJogador2 := PontosJogador2 + vPontos;
+      edtJogador2.Text := IntToStr(PontosJogador2);
+    end;
+    VerificaSeGanhou(AIdJogador);
+    Exit;
+  end
+  else
+  begin
+    vPontos := 100;
+    vPontos := vPontos - (10 * (contErros));
+
+    if AIdJogador = 1 then
+    begin
+      PontosJogador1 := PontosJogador1 + vPontos;
+      edtJogador1.Text := IntToStr(PontosJogador1);
+    end
+    else
+    begin
+      PontosJogador2 := PontosJogador2 + vPontos;
+      edtJogador2.Text := IntToStr(PontosJogador2);
+    end;
+    VerificaSeGanhou(AIdJogador);
+  end;
 end;
 
 Procedure TForm2.ComparaResultado(letra: String);
 var
   i: integer;
-  achou, terminou: boolean;
+  achou, terminou: Boolean;
 begin
   achou := false;
   terminou := true;
 
-  for i := 1 to length(Edit1.Text) do
+  for i := 1 to length(edtPalavraSecreta.Text) do
   begin
     If (Palavra[i] = letra) then
     begin
@@ -313,7 +395,7 @@ begin
 
   edtPalavra.Text := '';
 
-  for i := 1 to length(Edit1.Text) do
+  for i := 1 to length(edtPalavraSecreta.Text) do
   begin
     edtPalavra.Text := edtPalavra.Text + GuardaResultado[i];
     if GuardaResultado[i] = '*' then
@@ -344,14 +426,32 @@ begin
   if contErros = 6 then
   begin
     ShowMessage('Errou');
-    Label2.Caption := Edit1.Text;
+    Label2.Caption := edtPalavraSecreta.Text;
     LblPalavraRevelada.Visible := true;
     Label2.Visible := true;
   end
-  else if terminou = true then
+  else if terminou then
   begin
     ShowMessage('Acertou');
+    Ganhou(JogadorAtual, false);
   end;
+  // JogadorAtual := StrToInt(IfThen(JogadorAtual = 1, '2', '1'));
+end;
+
+procedure TForm2.ControlaCampos;
+begin
+  edtChutarPalavra.Visible := False;
+  btnChutarPalavra.Visible := False;
+  edtPalavra.Text := '';
+  edtPalavra.Visible := true;
+  btnJogar.Visible := true;
+  pnlLetras.Enabled := False;
+  contErros := 0;
+  JogadorAtual := StrToInt(IfThen((JogadorAtual = 2) or (JogadorAtual = 0),
+    '1', '2'));
+  imgBonecoForca.Picture.LoadFromFile
+    ('C:\game-forca\jogo-forca-delphi\img\nada.png');
+  edtPalavraSecreta.SetFocus;
 
 end;
 

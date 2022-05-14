@@ -29,7 +29,6 @@ object Form2: TForm2
     Color = clGradientActiveCaption
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 668
     object Image1: TImage
       Left = 0
       Top = 0
@@ -3845,54 +3844,36 @@ object Form2: TForm2
         4A5B00DA8C74A28A996E0423EF9FAFF8D35BFD61FA0A28ACE5B80C7FBDF87F53
         504DF77FE05FD68A291512393A0FAD4727FAB6FA51454C8A1A3AD44BD3F13451
         58BDC061FBEDF5A63FDFFC28A2803FFFD9}
-      ExplicitLeft = 280
-      ExplicitTop = 256
-      ExplicitWidth = 105
-      ExplicitHeight = 105
+      ExplicitLeft = 40
+      ExplicitTop = -8
     end
     object LblPalavraRevelada: TLabel
-      Left = 391
-      Top = 325
+      Left = 404
+      Top = 285
       Width = 78
       Height = 13
       Caption = 'Palavra correta:'
     end
-    object btnChutarFrase: TSpeedButton
-      Left = 515
-      Top = 232
+    object btnJogar: TSpeedButton
+      Left = 549
+      Top = 160
       Width = 67
       Height = 21
       Caption = 'JOGAR'
-      Flat = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clRed
       Font.Height = -21
       Font.Name = 'System'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnChutarFraseClick
+      OnClick = btnJogarClick
     end
     object Label2: TLabel
-      Left = 394
-      Top = 344
+      Left = 404
+      Top = 304
       Width = 31
       Height = 13
       Caption = 'Label2'
-    end
-    object btnZ: TSpeedButton
-      Left = 156
-      Top = 134
-      Width = 38
-      Height = 29
-      Caption = 'Z'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnZClick
     end
     object imgBonecoForca: TImage
       Left = 0
@@ -3901,380 +3882,47 @@ object Form2: TForm2
       Height = 331
       Align = alCustom
     end
-    object btnY: TSpeedButton
-      Left = 327
-      Top = 64
-      Width = 38
-      Height = 29
-      Caption = 'Y'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clFuchsia
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnYClick
-    end
-    object btnX: TSpeedButton
-      Left = 200
-      Top = 134
-      Width = 38
-      Height = 29
-      Caption = 'X'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clLime
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnXClick
-    end
-    object btnW: TSpeedButton
-      Left = 151
-      Top = 64
-      Width = 38
-      Height = 29
-      Caption = 'W'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clGreen
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnWClick
-    end
-    object btnV: TSpeedButton
-      Left = 288
-      Top = 134
-      Width = 38
-      Height = 29
-      Caption = 'V'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlue
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnVClick
-    end
-    object btnU: TSpeedButton
-      Left = 371
-      Top = 64
-      Width = 38
-      Height = 29
-      Caption = 'U'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clTeal
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnUClick
-    end
-    object btnT: TSpeedButton
-      Left = 283
-      Top = 64
-      Width = 38
-      Height = 29
-      Caption = 'T'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clAqua
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnTClick
-    end
-    object btnS: TSpeedButton
-      Left = 167
-      Top = 99
-      Width = 38
-      Height = 29
-      Caption = 'S'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnSClick
-    end
-    object btnR: TSpeedButton
-      Left = 239
-      Top = 64
-      Width = 38
-      Height = 29
-      Caption = 'R'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clBlue
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnRClick
-    end
-    object btnQ: TSpeedButton
-      Left = 107
-      Top = 64
-      Width = 38
-      Height = 29
-      Caption = 'Q'
-      Flat = True
+    object btnChutarPalavra: TSpeedButton
+      Left = 422
+      Top = 437
+      Width = 67
+      Height = 21
+      Caption = 'CHUTAR'
       Font.Charset = ANSI_CHARSET
       Font.Color = clRed
-      Font.Height = -20
-      Font.Name = 'Impact'
+      Font.Height = -21
+      Font.Name = 'System'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnQClick
+      Visible = False
+      OnClick = btnChutarPalavraClick
     end
-    object btnP: TSpeedButton
-      Left = 496
-      Top = 64
-      Width = 38
-      Height = 29
-      Caption = 'P'
-      Flat = True
+    object lblJogador1: TLabel
+      Left = 32
+      Top = 38
+      Width = 48
+      Height = 13
+      Caption = 'Jogador 1'
+    end
+    object lblJogador2: TLabel
+      Left = 32
+      Top = 65
+      Width = 48
+      Height = 13
+      Caption = 'Jogador 2'
+    end
+    object Label1: TLabel
+      Left = 14
+      Top = 2
+      Width = 84
+      Height = 27
+      Caption = 'Placar'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
-      Font.Height = -20
-      Font.Name = 'Impact'
+      Font.Height = -24
+      Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnPClick
-    end
-    object btnO: TSpeedButton
-      Left = 452
-      Top = 64
-      Width = 38
-      Height = 29
-      Caption = 'O'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clSilver
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnOClick
-    end
-    object btnN: TSpeedButton
-      Left = 383
-      Top = 134
-      Width = 38
-      Height = 29
-      Caption = 'N'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clPurple
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnNClick
-    end
-    object btnM: TSpeedButton
-      Left = 427
-      Top = 134
-      Width = 38
-      Height = 29
-      Caption = 'M'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clRed
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnMClick
-    end
-    object btnL: TSpeedButton
-      Left = 475
-      Top = 99
-      Width = 38
-      Height = 29
-      Caption = 'L'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clGreen
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnLClick
-    end
-    object btnK: TSpeedButton
-      Left = 431
-      Top = 99
-      Width = 38
-      Height = 29
-      Caption = 'K'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnKClick
-    end
-    object btnJ: TSpeedButton
-      Left = 387
-      Top = 99
-      Width = 38
-      Height = 29
-      Caption = 'J'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clYellow
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnJClick
-    end
-    object btnI: TSpeedButton
-      Left = 415
-      Top = 64
-      Width = 38
-      Height = 29
-      Caption = 'I'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnIClick
-    end
-    object btnH: TSpeedButton
-      Left = 343
-      Top = 99
-      Width = 38
-      Height = 29
-      Caption = 'H'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clMaroon
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnHClick
-    end
-    object btnG: TSpeedButton
-      Left = 299
-      Top = 99
-      Width = 38
-      Height = 29
-      Caption = 'G'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clYellow
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnGClick
-    end
-    object btnF: TSpeedButton
-      Left = 255
-      Top = 99
-      Width = 38
-      Height = 29
-      Caption = 'F'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clFuchsia
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnFClick
-    end
-    object btnE: TSpeedButton
-      Left = 195
-      Top = 64
-      Width = 38
-      Height = 29
-      Caption = 'E'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clYellow
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnEClick
-    end
-    object btnD: TSpeedButton
-      Left = 211
-      Top = 99
-      Width = 38
-      Height = 29
-      Caption = 'D'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clRed
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnDClick
-    end
-    object btnC: TSpeedButton
-      Left = 244
-      Top = 134
-      Width = 38
-      Height = 29
-      Caption = 'C'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clMaroon
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnCClick
-    end
-    object btnB: TSpeedButton
-      Left = 339
-      Top = 134
-      Width = 38
-      Height = 29
-      Caption = 'B'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clAqua
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnBClick
-    end
-    object btnA: TSpeedButton
-      Left = 123
-      Top = 99
-      Width = 38
-      Height = 29
-      Caption = 'A'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clOlive
-      Font.Height = -20
-      Font.Name = 'Impact'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnAClick
     end
     object Button1: TButton
       Left = 239
@@ -4285,25 +3933,457 @@ object Form2: TForm2
       TabOrder = 0
       OnClick = Button1Click
     end
+    object edtJogador1: TEdit
+      Left = 86
+      Top = 35
+      Width = 59
+      Height = 21
+      TabOrder = 1
+    end
+    object edtJogador2: TEdit
+      Left = 86
+      Top = 62
+      Width = 59
+      Height = 21
+      TabOrder = 2
+    end
   end
   object edtPalavra: TEdit
-    Left = 283
-    Top = 379
-    Width = 193
-    Height = 21
+    Left = 255
+    Top = 472
+    Width = 299
+    Height = 36
     BevelOuter = bvNone
     BorderStyle = bsNone
     CharCase = ecUpperCase
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clRed
+    Font.Height = -29
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ReadOnly = True
     TabOrder = 1
   end
-  object Edit1: TEdit
-    Left = 388
-    Top = 232
+  object edtPalavraSecreta: TEdit
+    Left = 422
+    Top = 160
     Width = 121
     Height = 21
     CharCase = ecUpperCase
     PasswordChar = '*'
     TabOrder = 2
+  end
+  object pnlLetras: TPanel
+    Left = 347
+    Top = 8
+    Width = 441
+    Height = 113
+    BevelOuter = bvNone
+    BorderWidth = 10
+    Color = clWhite
+    ParentBackground = False
+    TabOrder = 3
+    object btnA: TSpeedButton
+      Left = 19
+      Top = 43
+      Width = 38
+      Height = 29
+      Caption = 'A'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clNavy
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnAClick
+    end
+    object btnB: TSpeedButton
+      Left = 228
+      Top = 78
+      Width = 38
+      Height = 29
+      Caption = 'B'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clFuchsia
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnBClick
+    end
+    object btnC: TSpeedButton
+      Left = 140
+      Top = 78
+      Width = 38
+      Height = 29
+      Caption = 'C'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clLime
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnCClick
+    end
+    object btnD: TSpeedButton
+      Left = 107
+      Top = 43
+      Width = 38
+      Height = 29
+      Caption = 'D'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clAqua
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnDClick
+    end
+    object btnE: TSpeedButton
+      Left = 91
+      Top = 8
+      Width = 38
+      Height = 29
+      Caption = 'E'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clYellow
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnEClick
+    end
+    object btnF: TSpeedButton
+      Left = 151
+      Top = 43
+      Width = 38
+      Height = 29
+      Caption = 'F'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clRed
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnFClick
+    end
+    object btnG: TSpeedButton
+      Left = 195
+      Top = 43
+      Width = 38
+      Height = 29
+      Caption = 'G'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clYellow
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnGClick
+    end
+    object btnH: TSpeedButton
+      Left = 239
+      Top = 43
+      Width = 38
+      Height = 29
+      Caption = 'H'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clRed
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnHClick
+    end
+    object btnI: TSpeedButton
+      Left = 311
+      Top = 8
+      Width = 38
+      Height = 29
+      Caption = 'I'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnIClick
+    end
+    object btnJ: TSpeedButton
+      Left = 283
+      Top = 43
+      Width = 38
+      Height = 29
+      Caption = 'J'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clLime
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnJClick
+    end
+    object btnK: TSpeedButton
+      Left = 327
+      Top = 43
+      Width = 38
+      Height = 29
+      Caption = 'K'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clYellow
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnKClick
+    end
+    object btnL: TSpeedButton
+      Left = 371
+      Top = 43
+      Width = 38
+      Height = 29
+      Caption = 'L'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnLClick
+    end
+    object btnM: TSpeedButton
+      Left = 316
+      Top = 78
+      Width = 38
+      Height = 29
+      Caption = 'M'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clPurple
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnMClick
+    end
+    object btnN: TSpeedButton
+      Left = 272
+      Top = 78
+      Width = 38
+      Height = 29
+      Caption = 'N'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clRed
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnNClick
+    end
+    object btnO: TSpeedButton
+      Left = 351
+      Top = 8
+      Width = 38
+      Height = 29
+      Caption = 'O'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clTeal
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnOClick
+    end
+    object btnP: TSpeedButton
+      Left = 395
+      Top = 8
+      Width = 38
+      Height = 29
+      Caption = 'P'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clFuchsia
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnPClick
+    end
+    object btnQ: TSpeedButton
+      Left = 3
+      Top = 8
+      Width = 38
+      Height = 29
+      Caption = 'Q'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clRed
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnQClick
+    end
+    object btnR: TSpeedButton
+      Left = 135
+      Top = 8
+      Width = 38
+      Height = 29
+      Caption = 'R'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clPurple
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnRClick
+    end
+    object btnS: TSpeedButton
+      Left = 63
+      Top = 43
+      Width = 38
+      Height = 29
+      Caption = 'S'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clGray
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnSClick
+    end
+    object btnT: TSpeedButton
+      Left = 179
+      Top = 8
+      Width = 38
+      Height = 29
+      Caption = 'T'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clLime
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnTClick
+    end
+    object btnU: TSpeedButton
+      Left = 267
+      Top = 8
+      Width = 38
+      Height = 29
+      Caption = 'U'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clGreen
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnUClick
+    end
+    object btnV: TSpeedButton
+      Left = 184
+      Top = 78
+      Width = 38
+      Height = 29
+      Caption = 'V'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlue
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnVClick
+    end
+    object btnW: TSpeedButton
+      Left = 47
+      Top = 8
+      Width = 38
+      Height = 29
+      Caption = 'W'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlue
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnWClick
+    end
+    object btnX: TSpeedButton
+      Left = 96
+      Top = 78
+      Width = 38
+      Height = 29
+      Caption = 'X'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clMaroon
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnXClick
+    end
+    object btnY: TSpeedButton
+      Left = 223
+      Top = 8
+      Width = 38
+      Height = 29
+      Caption = 'Y'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clNavy
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnYClick
+    end
+    object btnZ: TSpeedButton
+      Left = 59
+      Top = 78
+      Width = 31
+      Height = 29
+      Caption = 'Z'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clGreen
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnZClick
+    end
+  end
+  object edtChutarPalavra: TEdit
+    Left = 295
+    Top = 437
+    Width = 121
+    Height = 21
+    CharCase = ecUpperCase
+    PasswordChar = '*'
+    TabOrder = 4
+    Visible = False
   end
   object ImageList1: TImageList
     Left = 232
