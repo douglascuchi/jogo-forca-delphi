@@ -3947,6 +3947,15 @@ object Form2: TForm2
       Height = 21
       TabOrder = 2
     end
+    object ckbExibirPalavra: TCheckBox
+      Left = 422
+      Top = 187
+      Width = 97
+      Height = 17
+      Caption = 'Exibir palavra'
+      TabOrder = 3
+      OnClick = ckbExibirPalavraClick
+    end
   end
   object edtPalavra: TEdit
     Left = 255

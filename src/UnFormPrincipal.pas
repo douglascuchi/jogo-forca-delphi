@@ -55,6 +55,7 @@ type
     edtJogador1: TEdit;
     edtJogador2: TEdit;
     Label1: TLabel;
+    ckbExibirPalavra: TCheckBox;
     procedure btnBClick(Sender: TObject);
     procedure btnCClick(Sender: TObject);
     procedure btnDClick(Sender: TObject);
@@ -85,6 +86,7 @@ type
     procedure btnJogarClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure btnChutarPalavraClick(Sender: TObject);
+    procedure ckbExibirPalavraClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -99,7 +101,8 @@ type
     Procedure novoJogo;
     Procedure Ganhou(AIdJogador: integer; SeChutou: Boolean);
     procedure ControlaCampos;
-    function VerificaSeGanhou(AIdJogador: integer): Boolean;  /// ////falta
+    function VerificaSeGanhou(AIdJogador: integer): Boolean;
+    /// ////falta
 
   public
     { Public declarations }
@@ -148,12 +151,21 @@ procedure TForm2.btnJogarClick(Sender: TObject);
 var
   i: integer;
 begin
-  pnlLetras.Enabled := True;
+  if (Length(edtPalavraSecreta.Text) < 5) then
+  begin
+    ShowMessage('Palavra não pode ser menor que 5 letras');
+    edtPalavraSecreta.Clear;
+    edtPalavraSecreta.SetFocus;
+    exit
+  end;
+
+  pnlLetras.Enabled := true;
   btnChutarPalavra.Visible := true;
   edtChutarPalavra.Visible := true;
   btnJogar.Visible := false;
   edtPalavraSecreta.Visible := false;
-  for i := 1 to length(edtPalavraSecreta.Text) do
+  ckbExibirPalavra.visible := false;
+  for i := 1 to Length(edtPalavraSecreta.Text) do
   begin
     Palavra[i] := copy(edtPalavraSecreta.Text, i, 1);
     edtPalavra.Text := edtPalavra.Text + '* ';
@@ -303,6 +315,14 @@ begin
   Form1.Show;
 end;
 
+procedure TForm2.ckbExibirPalavraClick(Sender: TObject);
+begin
+  if ckbExibirPalavra.Checked then
+    edtPalavraSecreta.PasswordChar := #0
+  else
+    edtPalavraSecreta.PasswordChar := '*';
+end;
+
 procedure TForm2.novoJogo;
 begin
   ControlaCampos;
@@ -349,7 +369,7 @@ begin
       edtJogador2.Text := IntToStr(PontosJogador2);
     end;
     VerificaSeGanhou(AIdJogador);
-    Exit;
+    exit;
   end
   else
   begin
@@ -378,7 +398,7 @@ begin
   achou := false;
   terminou := true;
 
-  for i := 1 to length(edtPalavraSecreta.Text) do
+  for i := 1 to Length(edtPalavraSecreta.Text) do
   begin
     If (Palavra[i] = letra) then
     begin
@@ -395,7 +415,7 @@ begin
 
   edtPalavra.Text := '';
 
-  for i := 1 to length(edtPalavraSecreta.Text) do
+  for i := 1 to Length(edtPalavraSecreta.Text) do
   begin
     edtPalavra.Text := edtPalavra.Text + GuardaResultado[i];
     if GuardaResultado[i] = '*' then
@@ -440,12 +460,13 @@ end;
 
 procedure TForm2.ControlaCampos;
 begin
-  edtChutarPalavra.Visible := False;
-  btnChutarPalavra.Visible := False;
+  edtChutarPalavra.Visible := false;
+  btnChutarPalavra.Visible := false;
   edtPalavra.Text := '';
-  edtPalavra.Visible := true;
+  edtPalavraSecreta.Visible := true;
   btnJogar.Visible := true;
-  pnlLetras.Enabled := False;
+  ckbExibirPalavra.Visible := true;
+  pnlLetras.Enabled := false;
   contErros := 0;
   JogadorAtual := StrToInt(IfThen((JogadorAtual = 2) or (JogadorAtual = 0),
     '1', '2'));
