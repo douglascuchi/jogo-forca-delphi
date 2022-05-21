@@ -4,10 +4,10 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics, System.StrUtils,
+  System.Classes, Vcl.Graphics, System.StrUtils, UnGanhouPerdeu, UnConfig,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.BaseImageCollection,
   Vcl.ImageCollection, Vcl.Buttons, System.ImageList, Vcl.ImgList, pngimage,
-  Vcl.StdCtrls, Vcl.Menus, Vcl.Imaging.jpeg, Vcl.Mask, UnTelaInicio;
+  Vcl.StdCtrls, Vcl.Menus, Vcl.Imaging.jpeg, Vcl.Mask;
 
 type
   TForm2 = class(TForm)
@@ -41,12 +41,9 @@ type
     pnlBaseFundo: TPanel;
     edtPalavra: TEdit;
     btnZ: TSpeedButton;
-    Label2: TLabel;
     edtPalavraSecreta: TEdit;
     btnJogar: TSpeedButton;
-    LblPalavraRevelada: TLabel;
-    Image1: TImage;
-    Button1: TButton;
+    ImgFundo: TImage;
     pnlLetras: TPanel;
     edtChutarPalavra: TEdit;
     btnChutarPalavra: TSpeedButton;
@@ -54,7 +51,7 @@ type
     lblJogador2: TLabel;
     edtJogador1: TEdit;
     edtJogador2: TEdit;
-    Label1: TLabel;
+    lblPlacar: TLabel;
     ckbExibirPalavra: TCheckBox;
     procedure btnBClick(Sender: TObject);
     procedure btnCClick(Sender: TObject);
@@ -84,7 +81,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnAClick(Sender: TObject);
     procedure btnJogarClick(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
     procedure btnChutarPalavraClick(Sender: TObject);
     procedure ckbExibirPalavraClick(Sender: TObject);
 
@@ -100,12 +96,15 @@ type
     Procedure ComparaResultado(letra: string);
     Procedure novoJogo;
     Procedure Ganhou(AIdJogador: integer; SeChutou: Boolean);
+    Procedure Perdeu(AIdJogador: integer; SeChutou: Boolean);
     procedure ControlaCampos;
     function VerificaSeGanhou(AIdJogador: integer): Boolean;
+    procedure HabilitarBotoes;
+
     /// ////falta
 
   public
-    { Public declarations }
+    vDadosConfig: ADadosConfig;
 
   end;
 
@@ -115,7 +114,9 @@ var
 implementation
 
 // uses
-// Unit3;
+
+
+uses UnTelaInicio;// Unit3;
 
 {$R *.dfm}
 
@@ -143,6 +144,10 @@ begin
   begin
     Ganhou(JogadorAtual, true);
     edtPalavra.Text := edtPalavraSecreta.Text;
+  end
+  else if not(edtPalavraSecreta.Text = edtChutarPalavra.Text) then
+  begin
+    Perdeu(JogadorAtual, true);
   end;
 
 end;
@@ -153,7 +158,7 @@ var
 begin
   if (Length(edtPalavraSecreta.Text) < 5) then
   begin
-    ShowMessage('Palavra não pode ser menor que 5 letras');
+    ShowMessage('Digite uma palavra que tenha mais de 5 letras!');
     edtPalavraSecreta.Clear;
     edtPalavraSecreta.SetFocus;
     exit
@@ -164,7 +169,7 @@ begin
   edtChutarPalavra.Visible := true;
   btnJogar.Visible := false;
   edtPalavraSecreta.Visible := false;
-  ckbExibirPalavra.visible := false;
+  ckbExibirPalavra.Visible := false;
   for i := 1 to Length(edtPalavraSecreta.Text) do
   begin
     Palavra[i] := copy(edtPalavraSecreta.Text, i, 1);
@@ -310,11 +315,6 @@ begin
   btnZ.Enabled := false;
 end;
 
-procedure TForm2.Button1Click(Sender: TObject);
-begin
-  Form1.Show;
-end;
-
 procedure TForm2.ckbExibirPalavraClick(Sender: TObject);
 begin
   if ckbExibirPalavra.Checked then
@@ -338,6 +338,36 @@ begin
   end;
 end;
 
+procedure TForm2.Perdeu(AIdJogador: integer; SeChutou: Boolean);
+var
+  vPontos: integer;
+  vDados: ADadosGanhouPerdeu;
+begin
+  if SeChutou then
+    vPontos := 100
+  else
+    vPontos := 50;
+  if AIdJogador = 1 then
+  begin
+    PontosJogador1 := PontosJogador1 - vPontos;
+    edtJogador1.Text := IntToStr(PontosJogador1);
+  end
+  else
+  begin
+    PontosJogador2 := PontosJogador2 - vPontos;
+    edtJogador2.Text := IntToStr(PontosJogador2);
+  end;
+  vDados.Jogador := vDadosConfig.NomeJogador[JogadorAtual - 1];
+  if JogadorAtual = 1 then
+    vDados.PontosJogador := PontosJogador1
+  else
+    vDados.PontosJogador := PontosJogador2;
+  vDados.GanhouPerdeu := gpPerdeu;
+  vDados.PalavraCorreta := edtPalavraSecreta.Text;
+  if TFormGanhouPerdeu.Exibir(vDados) then
+    novoJogo;
+end;
+
 function TForm2.VerificaSeGanhou(AIdJogador: integer): Boolean;
 begin
   /// ///////falta
@@ -345,48 +375,57 @@ end;
 
 procedure TForm2.FormShow(Sender: TObject);
 begin
-  LblPalavraRevelada.Visible := false;
   JogadorAtual := 0;
-  Label2.Visible := false;
+  lblJogador1.Caption := vDadosConfig.NomeJogador[0];
+  lblJogador2.Caption := vDadosConfig.NomeJogador[1];
   novoJogo;
 end;
 
 procedure TForm2.Ganhou(AIdJogador: integer; SeChutou: Boolean);
 var
   vPontos: integer;
+  vDados: ADadosGanhouPerdeu;
 begin
   if SeChutou then
-  begin
-    vPontos := 150;
-    if AIdJogador = 1 then
-    begin
-      PontosJogador1 := PontosJogador1 + vPontos;
-      edtJogador1.Text := IntToStr(PontosJogador1);
-    end
-    else
-    begin
-      PontosJogador2 := PontosJogador2 + vPontos;
-      edtJogador2.Text := IntToStr(PontosJogador2);
-    end;
-    VerificaSeGanhou(AIdJogador);
-    exit;
-  end
+    vPontos := 150
   else
   begin
     vPontos := 100;
     vPontos := vPontos - (10 * (contErros));
+  end;
 
-    if AIdJogador = 1 then
-    begin
-      PontosJogador1 := PontosJogador1 + vPontos;
-      edtJogador1.Text := IntToStr(PontosJogador1);
-    end
-    else
-    begin
-      PontosJogador2 := PontosJogador2 + vPontos;
-      edtJogador2.Text := IntToStr(PontosJogador2);
-    end;
-    VerificaSeGanhou(AIdJogador);
+  if AIdJogador = 1 then
+  begin
+    PontosJogador1 := PontosJogador1 + vPontos;
+    edtJogador1.Text := IntToStr(PontosJogador1);
+  end
+  else
+  begin
+    PontosJogador2 := PontosJogador2 + vPontos;
+    edtJogador2.Text := IntToStr(PontosJogador2);
+  end;
+  VerificaSeGanhou(AIdJogador);
+
+  vDados.Jogador := vDadosConfig.NomeJogador[JogadorAtual - 1];
+  if JogadorAtual = 1 then
+    vDados.PontosJogador := PontosJogador1
+  else
+    vDados.PontosJogador := PontosJogador2;
+  vDados.GanhouPerdeu := gpGanhou;
+
+  if TFormGanhouPerdeu.Exibir(vDados) then
+    novoJogo;
+
+end;
+
+procedure TForm2.HabilitarBotoes;
+var
+  i: integer;
+begin
+  for i := 0 to ComponentCount - 1 do
+  begin
+    if (Components[i] is TSpeedButton) then
+      TSpeedButton(Components[i]).Enabled := true;
   end;
 end;
 
@@ -444,21 +483,14 @@ begin
   end;
 
   if contErros = 6 then
-  begin
-    ShowMessage('Errou');
-    Label2.Caption := edtPalavraSecreta.Text;
-    LblPalavraRevelada.Visible := true;
-    Label2.Visible := true;
-  end
+    Perdeu(JogadorAtual, false)
   else if terminou then
-  begin
-    ShowMessage('Acertou');
     Ganhou(JogadorAtual, false);
-  end;
-  // JogadorAtual := StrToInt(IfThen(JogadorAtual = 1, '2', '1'));
 end;
 
 procedure TForm2.ControlaCampos;
+var
+  i: integer;
 begin
   edtChutarPalavra.Visible := false;
   btnChutarPalavra.Visible := false;
@@ -467,7 +499,15 @@ begin
   btnJogar.Visible := true;
   ckbExibirPalavra.Visible := true;
   pnlLetras.Enabled := false;
+  edtPalavraSecreta.Clear;
+  edtChutarPalavra.Clear;
+  edtPalavra.Clear;
   contErros := 0;
+  HabilitarBotoes;
+
+  for i := 0 to Length(GuardaResultado) do
+    GuardaResultado[i] := '';
+
   JogadorAtual := StrToInt(IfThen((JogadorAtual = 2) or (JogadorAtual = 0),
     '1', '2'));
   imgBonecoForca.Picture.LoadFromFile

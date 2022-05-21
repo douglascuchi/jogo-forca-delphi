@@ -1,8 +1,8 @@
-object Form1: TForm1
+object FormInicial: TFormInicial
   Left = 390
   Top = 165
   BorderStyle = bsNone
-  Caption = 'Form1'
+  Caption = 'FormInicial'
   ClientHeight = 520
   ClientWidth = 563
   Color = clBtnFace
@@ -1308,9 +1308,9 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object SpeedButton1: TSpeedButton
-    Left = 216
-    Top = 216
+  object btnJogar: TSpeedButton
+    Left = 222
+    Top = 212
     Width = 137
     Height = 46
     Caption = 'JOGAR'
@@ -1321,6 +1321,8 @@ object Form1: TForm1
     Font.Name = 'System'
     Font.Style = [fsBold]
     ParentFont = False
+    Visible = False
+    OnClick = btnJogarClick
   end
   object SpeedButton2: TSpeedButton
     Left = 174
@@ -1335,6 +1337,7 @@ object Form1: TForm1
     Font.Name = 'System'
     Font.Style = [fsBold]
     ParentFont = False
+    OnClick = SpeedButton2Click
   end
   object SpeedButton3: TSpeedButton
     Left = 222

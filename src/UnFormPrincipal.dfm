@@ -29,7 +29,7 @@ object Form2: TForm2
     Color = clGradientActiveCaption
     ParentBackground = False
     TabOrder = 0
-    object Image1: TImage
+    object ImgFundo: TImage
       Left = 0
       Top = 0
       Width = 796
@@ -3847,13 +3847,6 @@ object Form2: TForm2
       ExplicitLeft = 40
       ExplicitTop = -8
     end
-    object LblPalavraRevelada: TLabel
-      Left = 404
-      Top = 285
-      Width = 78
-      Height = 13
-      Caption = 'Palavra correta:'
-    end
     object btnJogar: TSpeedButton
       Left = 549
       Top = 160
@@ -3867,13 +3860,6 @@ object Form2: TForm2
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnJogarClick
-    end
-    object Label2: TLabel
-      Left = 404
-      Top = 304
-      Width = 31
-      Height = 13
-      Caption = 'Label2'
     end
     object imgBonecoForca: TImage
       Left = 0
@@ -3911,7 +3897,7 @@ object Form2: TForm2
       Height = 13
       Caption = 'Jogador 2'
     end
-    object Label1: TLabel
+    object lblPlacar: TLabel
       Left = 14
       Top = 2
       Width = 84
@@ -3924,28 +3910,19 @@ object Form2: TForm2
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object Button1: TButton
-      Left = 239
-      Top = 280
-      Width = 75
-      Height = 25
-      Caption = 'Button1'
-      TabOrder = 0
-      OnClick = Button1Click
-    end
     object edtJogador1: TEdit
       Left = 86
       Top = 35
       Width = 59
       Height = 21
-      TabOrder = 1
+      TabOrder = 0
     end
     object edtJogador2: TEdit
       Left = 86
       Top = 62
       Width = 59
       Height = 21
-      TabOrder = 2
+      TabOrder = 1
     end
     object ckbExibirPalavra: TCheckBox
       Left = 422
@@ -3953,14 +3930,14 @@ object Form2: TForm2
       Width = 97
       Height = 17
       Caption = 'Exibir palavra'
-      TabOrder = 3
+      TabOrder = 2
       OnClick = ckbExibirPalavraClick
     end
   end
   object edtPalavra: TEdit
     Left = 255
     Top = 472
-    Width = 299
+    Width = 446
     Height = 36
     BevelOuter = bvNone
     BorderStyle = bsNone
@@ -4263,21 +4240,6 @@ object Form2: TForm2
       ParentFont = False
       OnClick = btnRClick
     end
-    object btnS: TSpeedButton
-      Left = 63
-      Top = 43
-      Width = 38
-      Height = 29
-      Caption = 'S'
-      Flat = True
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clGray
-      Font.Height = -27
-      Font.Name = 'Courier New'
-      Font.Style = [fsBold]
-      ParentFont = False
-      OnClick = btnSClick
-    end
     object btnT: TSpeedButton
       Left = 179
       Top = 8
@@ -4382,6 +4344,21 @@ object Form2: TForm2
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnZClick
+    end
+    object btnS: TSpeedButton
+      Left = 63
+      Top = 43
+      Width = 38
+      Height = 29
+      Caption = 'S'
+      Flat = True
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clGray
+      Font.Height = -27
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnSClick
     end
   end
   object edtChutarPalavra: TEdit

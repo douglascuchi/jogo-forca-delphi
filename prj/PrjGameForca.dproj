@@ -107,7 +107,15 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\src\UnTelaInicio.pas">
-            <Form>Form1</Form>
+            <Form>FormInicial</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\src\UnGanhouPerdeu.pas">
+            <Form>FormGanhouPerdeu</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\src\UnConfig.pas">
+            <Form>FormConfig</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
