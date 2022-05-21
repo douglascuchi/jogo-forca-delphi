@@ -145,12 +145,12 @@ begin
   if JogadorAtual = 1 then
   begin
     lblJogador1.Font.Color := clRed;
-    lblJogador2.Font.Color := clWindow;
+    lblJogador2.Font.Color := clBlue;
   end
   else
   begin
     lblJogador2.Font.Color := clRed;
-    lblJogador1.Font.Color := clWindow;
+    lblJogador1.Font.Color := clBlue;
   end;
 end;
 
