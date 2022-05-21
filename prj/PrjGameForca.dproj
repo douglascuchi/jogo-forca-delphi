@@ -103,7 +103,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\src\UnFormPrincipal.pas">
-            <Form>Form2</Form>
+            <Form>FormTelaJogo</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\src\UnTelaInicio.pas">

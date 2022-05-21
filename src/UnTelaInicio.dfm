@@ -14,7 +14,7 @@ object FormInicial: TFormInicial
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poDesktopCenter
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
@@ -1309,7 +1309,7 @@ object FormInicial: TFormInicial
     ParentFont = False
   end
   object btnJogar: TSpeedButton
-    Left = 222
+    Left = 208
     Top = 212
     Width = 137
     Height = 46
@@ -1325,8 +1325,8 @@ object FormInicial: TFormInicial
     OnClick = btnJogarClick
   end
   object SpeedButton2: TSpeedButton
-    Left = 174
-    Top = 264
+    Left = 156
+    Top = 262
     Width = 239
     Height = 46
     Caption = 'CONFIGURA'#199#213'ES'
@@ -1340,8 +1340,8 @@ object FormInicial: TFormInicial
     OnClick = SpeedButton2Click
   end
   object SpeedButton3: TSpeedButton
-    Left = 222
-    Top = 309
+    Left = 208
+    Top = 310
     Width = 137
     Height = 46
     Caption = 'SOBRE'

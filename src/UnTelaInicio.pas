@@ -35,9 +35,9 @@ implementation
 
 procedure TFormInicial.btnJogarClick(Sender: TObject);
 var
-  vForm2: TForm2;
+  vForm2: TFormTelaJogo;
 begin
-  vForm2 := TForm2.Create(nil);
+  vForm2 := TFormTelaJogo.Create(nil);
   try
     vForm2.vDadosConfig.NomeJogador := vConfig.NomeJogador;
     vForm2.vDadosConfig.QtdeRodadas := vConfig.QtdeRodadas;

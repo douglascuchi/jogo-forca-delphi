@@ -10,7 +10,7 @@ uses
   Vcl.StdCtrls, Vcl.Menus, Vcl.Imaging.jpeg, Vcl.Mask;
 
 type
-  TForm2 = class(TForm)
+  TFormTelaJogo = class(TForm)
     imgBonecoForca: TImage;
     btnB: TSpeedButton;
     btnV: TSpeedButton;
@@ -78,7 +78,7 @@ type
   end;
 
 var
-  Form2: TForm2;
+  FormTelaJogo: TFormTelaJogo;
 
 implementation
 
@@ -86,13 +86,13 @@ uses UnTelaInicio;
 
 {$R *.dfm}
 
-procedure TForm2.btnAClick(Sender: TObject);
+procedure TFormTelaJogo.btnAClick(Sender: TObject);
 begin
   (Sender as TSpeedButton).Enabled := false;
   ComparaResultado((Sender as TSpeedButton).Caption);
 end;
 
-procedure TForm2.btnChutarPalavraClick(Sender: TObject);
+procedure TFormTelaJogo.btnChutarPalavraClick(Sender: TObject);
 begin
   if (edtPalavraSecreta.Text = edtChutarPalavra.Text) then
   begin
@@ -103,7 +103,7 @@ begin
     Perdeu(JogadorAtual, true);
 end;
 
-procedure TForm2.btnJogarClick(Sender: TObject);
+procedure TFormTelaJogo.btnJogarClick(Sender: TObject);
 var
   i: integer;
 begin
@@ -131,7 +131,7 @@ begin
   end;
 end;
 
-procedure TForm2.ckbExibirPalavraClick(Sender: TObject);
+procedure TFormTelaJogo.ckbExibirPalavraClick(Sender: TObject);
 begin
   if ckbExibirPalavra.Checked then
     edtPalavraSecreta.PasswordChar := #0
@@ -139,7 +139,7 @@ begin
     edtPalavraSecreta.PasswordChar := '*';
 end;
 
-procedure TForm2.novoJogo;
+procedure TFormTelaJogo.novoJogo;
 begin
   ControlaCampos;
   if JogadorAtual = 1 then
@@ -154,7 +154,7 @@ begin
   end;
 end;
 
-procedure TForm2.Perdeu(AIdJogador: integer; SeChutou: Boolean);
+procedure TFormTelaJogo.Perdeu(AIdJogador: integer; SeChutou: Boolean);
 var
   vPontos: integer;
   vDados: ADadosGanhouPerdeu;
@@ -184,7 +184,7 @@ begin
     novoJogo;
 end;
 
-procedure TForm2.FormShow(Sender: TObject);
+procedure TFormTelaJogo.FormShow(Sender: TObject);
 begin
   JogadorAtual := 0;
   lblJogador1.Caption := vDadosConfig.NomeJogador[0];
@@ -192,7 +192,7 @@ begin
   novoJogo;
 end;
 
-procedure TForm2.Ganhou(AIdJogador: integer; SeChutou: Boolean);
+procedure TFormTelaJogo.Ganhou(AIdJogador: integer; SeChutou: Boolean);
 var
   vPontos: integer;
   vDados: ADadosGanhouPerdeu;
@@ -228,7 +228,7 @@ begin
 
 end;
 
-procedure TForm2.HabilitarBotoes;
+procedure TFormTelaJogo.HabilitarBotoes;
 var
   i: integer;
 begin
@@ -239,7 +239,7 @@ begin
   end;
 end;
 
-Procedure TForm2.ComparaResultado(letra: String);
+Procedure TFormTelaJogo.ComparaResultado(letra: String);
 var
   i: integer;
   achou, terminou: Boolean;
@@ -298,7 +298,7 @@ begin
     Ganhou(JogadorAtual, false);
 end;
 
-procedure TForm2.ControlaCampos;
+procedure TFormTelaJogo.ControlaCampos;
 var
   i: integer;
 begin

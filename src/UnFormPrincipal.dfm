@@ -1,13 +1,16 @@
-object Form2: TForm2
+object FormTelaJogo: TFormTelaJogo
   Left = 293
-  Top = 110
+  Top = 55
   Cursor = crHandPoint
+  BorderIcons = [biSystemMenu]
   Caption = 'Jogo da forca'
-  ClientHeight = 516
-  ClientWidth = 796
+  ClientHeight = 512
+  ClientWidth = 793
   Color = clBtnFace
-  Constraints.MinHeight = 555
-  Constraints.MinWidth = 684
+  Constraints.MaxHeight = 551
+  Constraints.MaxWidth = 809
+  Constraints.MinHeight = 551
+  Constraints.MinWidth = 809
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -15,17 +18,17 @@ object Form2: TForm2
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poDesktopCenter
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object pnlBaseFundo: TPanel
     Left = 0
     Top = 0
-    Width = 796
-    Height = 516
+    Width = 1005
+    Height = 847
     Cursor = crHandPoint
-    Align = alClient
+    Align = alCustom
     BevelOuter = bvNone
     Color = clGradientActiveCaption
     ParentBackground = False
@@ -36,6 +39,10 @@ object Form2: TForm2
       Width = 796
       Height = 516
       Align = alClient
+      Constraints.MaxHeight = 516
+      Constraints.MaxWidth = 796
+      Constraints.MinHeight = 516
+      Constraints.MinWidth = 796
       Picture.Data = {
         0A544A504547496D616765E2DB0100FFD8FFE000104A46494600010101009600
         960000FFE100224578696600004D4D002A000000080001011200030000000100
@@ -3923,7 +3930,7 @@ object Form2: TForm2
       ParentFont = False
     end
     object lblPontosJogador1: TLabel
-      Left = 51
+      Left = 53
       Top = 55
       Width = 48
       Height = 16
@@ -3936,7 +3943,7 @@ object Form2: TForm2
       ParentFont = False
     end
     object lblPontosJogador2: TLabel
-      Left = 51
+      Left = 53
       Top = 101
       Width = 48
       Height = 16
@@ -3951,7 +3958,7 @@ object Form2: TForm2
     object edtJogador1: TEdit
       Left = 14
       Top = 52
-      Width = 35
+      Width = 38
       Height = 24
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -3965,7 +3972,7 @@ object Form2: TForm2
     object edtJogador2: TEdit
       Left = 14
       Top = 98
-      Width = 35
+      Width = 38
       Height = 24
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
