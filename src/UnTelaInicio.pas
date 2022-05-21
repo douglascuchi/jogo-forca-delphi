@@ -10,7 +10,6 @@ uses
 
 type
   TFormInicial = class(TForm)
-    ImageList1: TImageList;
     Image1: TImage;
     Label1: TLabel;
     FORCA: TLabel;

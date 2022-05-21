@@ -1,6 +1,6 @@
 object Form2: TForm2
-  Left = 0
-  Top = 0
+  Left = 293
+  Top = 110
   Cursor = crHandPoint
   Caption = 'Jogo da forca'
   ClientHeight = 516
@@ -15,6 +15,7 @@ object Form2: TForm2
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
+  Position = poDesigned
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -3844,19 +3845,18 @@ object Form2: TForm2
         4A5B00DA8C74A28A996E0423EF9FAFF8D35BFD61FA0A28ACE5B80C7FBDF87F53
         504DF77FE05FD68A291512393A0FAD4727FAB6FA51454C8A1A3AD44BD3F13451
         58BDC061FBEDF5A63FDFFC28A2803FFFD9}
-      ExplicitLeft = 40
-      ExplicitTop = -8
+      ExplicitLeft = 5
     end
     object btnJogar: TSpeedButton
-      Left = 549
-      Top = 160
-      Width = 67
-      Height = 21
+      Left = 545
+      Top = 137
+      Width = 78
+      Height = 30
       Caption = 'JOGAR'
       Font.Charset = ANSI_CHARSET
       Font.Color = clRed
       Font.Height = -21
-      Font.Name = 'System'
+      Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnJogarClick
@@ -3869,33 +3869,45 @@ object Form2: TForm2
       Align = alCustom
     end
     object btnChutarPalavra: TSpeedButton
-      Left = 422
-      Top = 437
-      Width = 67
-      Height = 21
+      Left = 453
+      Top = 439
+      Width = 90
+      Height = 30
       Caption = 'CHUTAR'
       Font.Charset = ANSI_CHARSET
       Font.Color = clRed
       Font.Height = -21
-      Font.Name = 'System'
+      Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
       Visible = False
       OnClick = btnChutarPalavraClick
     end
     object lblJogador1: TLabel
-      Left = 32
-      Top = 38
-      Width = 48
-      Height = 13
+      Left = 14
+      Top = 35
+      Width = 90
+      Height = 18
       Caption = 'Jogador 1'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lblJogador2: TLabel
-      Left = 32
-      Top = 65
-      Width = 48
-      Height = 13
+      Left = 14
+      Top = 81
+      Width = 90
+      Height = 18
       Caption = 'Jogador 2'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lblPlacar: TLabel
       Left = 14
@@ -3910,23 +3922,63 @@ object Form2: TForm2
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object lblPontosJogador1: TLabel
+      Left = 51
+      Top = 55
+      Width = 48
+      Height = 16
+      Caption = 'pontos'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblPontosJogador2: TLabel
+      Left = 51
+      Top = 101
+      Width = 48
+      Height = 16
+      Caption = 'pontos'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object edtJogador1: TEdit
-      Left = 86
-      Top = 35
-      Width = 59
-      Height = 21
+      Left = 14
+      Top = 52
+      Width = 35
+      Height = 24
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 0
+      Text = '0'
     end
     object edtJogador2: TEdit
-      Left = 86
-      Top = 62
-      Width = 59
-      Height = 21
+      Left = 14
+      Top = 98
+      Width = 35
+      Height = 24
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 1
+      Text = '0'
     end
     object ckbExibirPalavra: TCheckBox
-      Left = 422
-      Top = 187
+      Left = 380
+      Top = 169
       Width = 97
       Height = 17
       Caption = 'Exibir palavra'
@@ -3935,9 +3987,9 @@ object Form2: TForm2
     end
   end
   object edtPalavra: TEdit
-    Left = 255
+    Left = 182
     Top = 472
-    Width = 446
+    Width = 441
     Height = 36
     BevelOuter = bvNone
     BorderStyle = bsNone
@@ -3952,16 +4004,22 @@ object Form2: TForm2
     TabOrder = 1
   end
   object edtPalavraSecreta: TEdit
-    Left = 422
-    Top = 160
-    Width = 121
-    Height = 21
+    Left = 380
+    Top = 137
+    Width = 164
+    Height = 30
     CharCase = ecUpperCase
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
     PasswordChar = '*'
     TabOrder = 2
   end
   object pnlLetras: TPanel
-    Left = 347
+    Left = 182
     Top = 8
     Width = 441
     Height = 113
@@ -3998,7 +4056,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnBClick
+      OnClick = btnAClick
     end
     object btnC: TSpeedButton
       Left = 140
@@ -4013,7 +4071,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnCClick
+      OnClick = btnAClick
     end
     object btnD: TSpeedButton
       Left = 107
@@ -4028,7 +4086,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnDClick
+      OnClick = btnAClick
     end
     object btnE: TSpeedButton
       Left = 91
@@ -4043,7 +4101,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnEClick
+      OnClick = btnAClick
     end
     object btnF: TSpeedButton
       Left = 151
@@ -4058,7 +4116,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnFClick
+      OnClick = btnAClick
     end
     object btnG: TSpeedButton
       Left = 195
@@ -4073,7 +4131,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnGClick
+      OnClick = btnAClick
     end
     object btnH: TSpeedButton
       Left = 239
@@ -4088,7 +4146,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnHClick
+      OnClick = btnAClick
     end
     object btnI: TSpeedButton
       Left = 311
@@ -4103,7 +4161,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnIClick
+      OnClick = btnAClick
     end
     object btnJ: TSpeedButton
       Left = 283
@@ -4118,7 +4176,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnJClick
+      OnClick = btnAClick
     end
     object btnK: TSpeedButton
       Left = 327
@@ -4133,7 +4191,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnKClick
+      OnClick = btnAClick
     end
     object btnL: TSpeedButton
       Left = 371
@@ -4148,7 +4206,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnLClick
+      OnClick = btnAClick
     end
     object btnM: TSpeedButton
       Left = 316
@@ -4163,7 +4221,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnMClick
+      OnClick = btnAClick
     end
     object btnN: TSpeedButton
       Left = 272
@@ -4178,7 +4236,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnNClick
+      OnClick = btnAClick
     end
     object btnO: TSpeedButton
       Left = 351
@@ -4193,7 +4251,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnOClick
+      OnClick = btnAClick
     end
     object btnP: TSpeedButton
       Left = 395
@@ -4208,7 +4266,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnPClick
+      OnClick = btnAClick
     end
     object btnQ: TSpeedButton
       Left = 3
@@ -4223,7 +4281,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnQClick
+      OnClick = btnAClick
     end
     object btnR: TSpeedButton
       Left = 135
@@ -4238,7 +4296,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnRClick
+      OnClick = btnAClick
     end
     object btnT: TSpeedButton
       Left = 179
@@ -4253,7 +4311,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnTClick
+      OnClick = btnAClick
     end
     object btnU: TSpeedButton
       Left = 267
@@ -4268,7 +4326,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnUClick
+      OnClick = btnAClick
     end
     object btnV: TSpeedButton
       Left = 184
@@ -4283,7 +4341,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnVClick
+      OnClick = btnAClick
     end
     object btnW: TSpeedButton
       Left = 47
@@ -4298,7 +4356,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnWClick
+      OnClick = btnAClick
     end
     object btnX: TSpeedButton
       Left = 96
@@ -4313,7 +4371,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnXClick
+      OnClick = btnAClick
     end
     object btnY: TSpeedButton
       Left = 223
@@ -4328,7 +4386,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnYClick
+      OnClick = btnAClick
     end
     object btnZ: TSpeedButton
       Left = 59
@@ -4343,7 +4401,7 @@ object Form2: TForm2
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnZClick
+      OnClick = btnAClick
     end
     object btnS: TSpeedButton
       Left = 63
@@ -4353,26 +4411,27 @@ object Form2: TForm2
       Caption = 'S'
       Flat = True
       Font.Charset = ANSI_CHARSET
-      Font.Color = clGray
+      Font.Color = clFuchsia
       Font.Height = -27
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = btnSClick
+      OnClick = btnAClick
     end
   end
   object edtChutarPalavra: TEdit
-    Left = 295
-    Top = 437
-    Width = 121
-    Height = 21
+    Left = 258
+    Top = 439
+    Width = 194
+    Height = 30
     CharCase = ecUpperCase
-    PasswordChar = '*'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 4
     Visible = False
-  end
-  object ImageList1: TImageList
-    Left = 232
-    Top = 448
   end
 end

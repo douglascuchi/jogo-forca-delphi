@@ -1,5 +1,5 @@
 object FormInicial: TFormInicial
-  Left = 390
+  Left = 439
   Top = 165
   BorderStyle = bsNone
   Caption = 'FormInicial'
@@ -1368,11 +1368,5 @@ object FormInicial: TFormInicial
     Style = bsCommandLink
     TabOrder = 0
     OnClick = Button1Click
-  end
-  object ImageList1: TImageList
-    Height = 32
-    Width = 32
-    Left = 504
-    Top = 400
   end
 end
