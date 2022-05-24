@@ -54,6 +54,10 @@ type
     ckbExibirPalavra: TCheckBox;
     lblPontosJogador1: TLabel;
     lblPontosJogador2: TLabel;
+    edtRodadas: TEdit;
+    lblRodadas: TLabel;
+    lblMsgTotalRodadas: TLabel;
+    lblTotalRodadas: TLabel;
     procedure FormShow(Sender: TObject);
     procedure btnAClick(Sender: TObject);
     procedure btnJogarClick(Sender: TObject);
@@ -61,7 +65,6 @@ type
     procedure ckbExibirPalavraClick(Sender: TObject);
   private
     Palavra: array [1 .. 25] of string;
-    Resultado: array [1 .. 25] of string;
     GuardaResultado: array [1 .. 25] of string;
     contErros: integer;
     PontosJogador1: integer;
@@ -73,6 +76,7 @@ type
     Procedure Perdeu(AIdJogador: integer; SeChutou: Boolean);
     procedure ControlaCampos;
     procedure HabilitarBotoes;
+    procedure VerificaSeAcabou;
   public
     vDadosConfig: ADadosConfig;
   end;
@@ -119,6 +123,8 @@ begin
   pnlLetras.Enabled := true;
   btnChutarPalavra.Visible := true;
   edtChutarPalavra.Visible := true;
+  btnChutarPalavra.Enabled := true;
+  edtChutarPalavra.Enabled := true;
   edtPalavra.Visible := true;
   btnJogar.Visible := false;
   edtPalavraSecreta.Visible := false;
@@ -141,16 +147,19 @@ end;
 
 procedure TFormTelaJogo.novoJogo;
 begin
+  JogadorAtual := StrToInt(IfThen((JogadorAtual = 2) or (JogadorAtual = 0),
+    '1', '2'));
+  VerificaSeAcabou;
   ControlaCampos;
   if JogadorAtual = 1 then
   begin
     lblJogador1.Font.Color := clRed;
-    lblJogador2.Font.Color := clBlue;
+    lblJogador2.Font.Color := clBlack;
   end
   else
   begin
     lblJogador2.Font.Color := clRed;
-    lblJogador1.Font.Color := clBlue;
+    lblJogador1.Font.Color := clBlack;
   end;
 end;
 
@@ -184,11 +193,22 @@ begin
     novoJogo;
 end;
 
+procedure TFormTelaJogo.VerificaSeAcabou;
+begin
+  if (JogadorAtual = 1) and
+    (StrToInt(edtRodadas.Text) = vDadosConfig.QtdeRodadas) then
+    ShowMessage('acabou o jogo')
+  else if (JogadorAtual = 1) then
+    edtRodadas.Text := IntToStr(StrToInt(edtRodadas.Text) + 1);
+end;
+
 procedure TFormTelaJogo.FormShow(Sender: TObject);
 begin
   JogadorAtual := 0;
   lblJogador1.Caption := vDadosConfig.NomeJogador[0];
   lblJogador2.Caption := vDadosConfig.NomeJogador[1];
+  lblTotalRodadas.Caption := vDadosConfig.QtdeRodadas.ToString;
+  edtRodadas.Text := '0';
   novoJogo;
 end;
 
@@ -225,7 +245,6 @@ begin
 
   if TFormGanhouPerdeu.Exibir(vDados) then
     novoJogo;
-
 end;
 
 procedure TFormTelaJogo.HabilitarBotoes;
@@ -242,16 +261,16 @@ end;
 Procedure TFormTelaJogo.ComparaResultado(letra: String);
 var
   i: integer;
-  achou, terminou: Boolean;
+  achou: Boolean;
+  countLetrasFaltando: integer;
 begin
   achou := false;
-  terminou := true;
+  countLetrasFaltando := 0;
 
   for i := 1 to Length(edtPalavraSecreta.Text) do
   begin
     If (Palavra[i] = letra) then
     begin
-      Resultado[i] := letra;
       GuardaResultado[i] := letra;
       achou := true;
     end
@@ -268,7 +287,7 @@ begin
   begin
     edtPalavra.Text := edtPalavra.Text + GuardaResultado[i];
     if GuardaResultado[i] = '*' then
-      terminou := false;
+      countLetrasFaltando := countLetrasFaltando + 1;
   end;
 
   case contErros of
@@ -292,9 +311,12 @@ begin
         ('C:\game-forca\jogo-forca-delphi\img\completo.png');
   end;
 
+  edtChutarPalavra.Enabled := countLetrasFaltando >= 3;
+  btnChutarPalavra.Enabled := countLetrasFaltando >= 3;
+
   if contErros = 6 then
     Perdeu(JogadorAtual, false)
-  else if terminou then
+  else if countLetrasFaltando = 0 then
     Ganhou(JogadorAtual, false);
 end;
 
@@ -318,9 +340,6 @@ begin
 
   for i := 0 to Length(GuardaResultado) do
     GuardaResultado[i] := '';
-
-  JogadorAtual := StrToInt(IfThen((JogadorAtual = 2) or (JogadorAtual = 0),
-    '1', '2'));
 
   imgBonecoForca.Picture.LoadFromFile
     ('C:\game-forca\jogo-forca-delphi\img\nada.png');

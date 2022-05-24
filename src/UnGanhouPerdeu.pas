@@ -25,15 +25,20 @@ type
     pnlConfirmar: TPanel;
     btnContinuar: TButton;
     lblJogadorGanhou: TLabel;
-    lblJogadorPerdeu: TLabel;
     lblMsgGanhou: TLabel;
-    lblGanhouPontos: TLabel;
     lblMsgGanhouPontos: TLabel;
     lblMsgPerdeu: TLabel;
-    lblMsgPerdeuPontos: TLabel;
-    lblPerdeuPontos: TLabel;
     lblLblMsgPalavra: TLabel;
-    lblPalavraRevelada: TLabel;
+    edtQtdeGanhouPontos: TEdit;
+    pnlGanhouBase: TPanel;
+    lblMsgGanhouParabens: TLabel;
+    lblMsgGanhouPlayer: TLabel;
+    lblMsgPerdeuPlayer: TLabel;
+    lblJogadorPerdeu: TLabel;
+    lblMsgPerdeuPontos: TLabel;
+    edtPalavraCorreta: TEdit;
+    edtPerdeuPontos: TEdit;
+    pnlBasePerdeu: TPanel;
     procedure btnContinuarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -76,14 +81,14 @@ begin
   begin
     tsPerdeu.TabVisible := False;
     lblJogadorGanhou.Caption := VDados.Jogador;
-    lblGanhouPontos.Caption := VDados.PontosJogador.ToString;
+    edtQtdeGanhouPontos.Text := VDados.PontosJogador.ToString;
   end
   else
   begin
     tsGanhou.TabVisible := False;
     lblJogadorPerdeu.Caption := VDados.Jogador;
-    lblPerdeuPontos.Caption := VDados.PontosJogador.ToString;
-    lblPalavraRevelada.Caption := VDados.PalavraCorreta;
+    edtPerdeuPontos.Text := VDados.PontosJogador.ToString;
+    edtPalavraCorreta.Text := VDados.PalavraCorreta;
   end;
 
 end;

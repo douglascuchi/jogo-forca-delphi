@@ -3852,7 +3852,7 @@ object FormTelaJogo: TFormTelaJogo
         4A5B00DA8C74A28A996E0423EF9FAFF8D35BFD61FA0A28ACE5B80C7FBDF87F53
         504DF77FE05FD68A291512393A0FAD4727FAB6FA51454C8A1A3AD44BD3F13451
         58BDC061FBEDF5A63FDFFC28A2803FFFD9}
-      ExplicitLeft = 5
+      ExplicitLeft = -1
     end
     object btnJogar: TSpeedButton
       Left = 545
@@ -3887,7 +3887,6 @@ object FormTelaJogo: TFormTelaJogo
       Font.Name = 'Courier New'
       Font.Style = [fsBold]
       ParentFont = False
-      Visible = False
       OnClick = btnChutarPalavraClick
     end
     object lblJogador1: TLabel
@@ -3955,6 +3954,33 @@ object FormTelaJogo: TFormTelaJogo
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object lblRodadas: TLabel
+      Left = 635
+      Top = 53
+      Width = 130
+      Height = 18
+      Caption = 'Rodada atual:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Courier New'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblMsgTotalRodadas: TLabel
+      Left = 635
+      Top = 19
+      Width = 85
+      Height = 13
+      Caption = 'Total de rodadas:'
+    end
+    object lblTotalRodadas: TLabel
+      Left = 726
+      Top = 19
+      Width = 54
+      Height = 13
+      Caption = '**Rodadas'
+    end
     object edtJogador1: TEdit
       Left = 14
       Top = 52
@@ -3992,9 +4018,18 @@ object FormTelaJogo: TFormTelaJogo
       TabOrder = 2
       OnClick = ckbExibirPalavraClick
     end
+    object edtRodadas: TEdit
+      Left = 635
+      Top = 71
+      Width = 54
+      Height = 21
+      ReadOnly = True
+      TabOrder = 3
+      Text = 'edtRodadas'
+    end
   end
   object edtPalavra: TEdit
-    Left = 182
+    Left = 213
     Top = 472
     Width = 441
     Height = 36
@@ -4011,7 +4046,7 @@ object FormTelaJogo: TFormTelaJogo
     TabOrder = 1
   end
   object edtPalavraSecreta: TEdit
-    Left = 380
+    Left = 375
     Top = 137
     Width = 164
     Height = 30
@@ -4439,6 +4474,5 @@ object FormTelaJogo: TFormTelaJogo
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 4
-    Visible = False
   end
 end
