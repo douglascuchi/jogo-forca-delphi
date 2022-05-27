@@ -13,17 +13,17 @@ type
     Image1: TImage;
     Label1: TLabel;
     FORCA: TLabel;
-    Button1: TButton;
+    btnFechar: TButton;
     btnJogar: TSpeedButton;
-    SpeedButton2: TSpeedButton;
+    btnConfiguracao: TSpeedButton;
     SpeedButton3: TSpeedButton;
-    procedure Button1Click(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
+    procedure btnFecharClick(Sender: TObject);
+    procedure btnConfiguracaoClick(Sender: TObject);
     procedure btnJogarClick(Sender: TObject);
   private
     vConfig: ADadosConfig;
   public
-    { Public declarations }
+    class procedure Exibir;
   end;
 
 var
@@ -46,13 +46,13 @@ begin
     FreeAndNil(vForm2);
   end;
 end;
-
-procedure TFormInicial.Button1Click(Sender: TObject);
+                                                            s
+procedure TFormInicial.btnFecharClick(Sender: TObject);
 begin
   FormInicial.Close;
 end;
 
-procedure TFormInicial.SpeedButton2Click(Sender: TObject);
+procedure TFormInicial.btnConfiguracaoClick(Sender: TObject);
 begin
   vConfig := TFormConfig.Exibir;
   btnJogar.Visible := vConfig.Ok;

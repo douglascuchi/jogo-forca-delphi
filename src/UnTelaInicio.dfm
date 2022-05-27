@@ -1324,7 +1324,7 @@ object FormInicial: TFormInicial
     Visible = False
     OnClick = btnJogarClick
   end
-  object SpeedButton2: TSpeedButton
+  object btnConfiguracao: TSpeedButton
     Left = 156
     Top = 262
     Width = 239
@@ -1337,7 +1337,7 @@ object FormInicial: TFormInicial
     Font.Name = 'System'
     Font.Style = [fsBold]
     ParentFont = False
-    OnClick = SpeedButton2Click
+    OnClick = btnConfiguracaoClick
   end
   object SpeedButton3: TSpeedButton
     Left = 208
@@ -1353,7 +1353,7 @@ object FormInicial: TFormInicial
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Button1: TButton
+  object btnFechar: TButton
     Left = 490
     Top = 478
     Width = 89
@@ -1367,6 +1367,6 @@ object FormInicial: TFormInicial
     ParentFont = False
     Style = bsCommandLink
     TabOrder = 0
-    OnClick = Button1Click
+    OnClick = btnFecharClick
   end
 end

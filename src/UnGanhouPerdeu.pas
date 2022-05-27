@@ -9,7 +9,7 @@ uses
   Vcl.ExtCtrls;
 
 type
-  TGanhouPerdeu = (gpGanhou, gpPerdeu);
+  TGanhouPerdeu = (gpGanhou, gpPerdeu, gpVencedor, gpEmpate);
 
   ADadosGanhouPerdeu = record
     Jogador: string;
@@ -24,21 +24,28 @@ type
     tsPerdeu: TTabSheet;
     pnlConfirmar: TPanel;
     btnContinuar: TButton;
-    lblJogadorGanhou: TLabel;
-    lblMsgGanhou: TLabel;
-    lblMsgGanhouPontos: TLabel;
     lblMsgPerdeu: TLabel;
     lblLblMsgPalavra: TLabel;
-    edtQtdeGanhouPontos: TEdit;
-    pnlGanhouBase: TPanel;
-    lblMsgGanhouParabens: TLabel;
-    lblMsgGanhouPlayer: TLabel;
     lblMsgPerdeuPlayer: TLabel;
     lblJogadorPerdeu: TLabel;
     lblMsgPerdeuPontos: TLabel;
     edtPalavraCorreta: TEdit;
     edtPerdeuPontos: TEdit;
     pnlBasePerdeu: TPanel;
+    tsFinal: TTabSheet;
+    pnlGanhouBase: TPanel;
+    lblMsgGanhouPontos: TLabel;
+    lblMsgGanhou: TLabel;
+    lblJogadorGanhou: TLabel;
+    lblMsgGanhouParabens: TLabel;
+    lblMsgGanhouPlayer: TLabel;
+    edtQtdeGanhouPontos: TEdit;
+    pnlBaseFinal: TPanel;
+    lblJogadorFinal: TLabel;
+    lblMsgPontosFinal: TLabel;
+    lblMsgJogadorFinal: TLabel;
+    tsEmpate: TTabSheet;
+    lblPontuacaoFinal: TLabel;
     procedure btnContinuarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -77,18 +84,26 @@ end;
 
 procedure TFormGanhouPerdeu.FormShow(Sender: TObject);
 begin
+  tsPerdeu.TabVisible := VDados.GanhouPerdeu = gpPerdeu;
+  tsFinal.TabVisible := VDados.GanhouPerdeu = gpVencedor;
+  tsGanhou.TabVisible := VDados.GanhouPerdeu = gpGanhou;
+  tsEmpate.TabVisible := VDados.GanhouPerdeu = gpEmpate;
+
   if VDados.GanhouPerdeu = gpGanhou then
   begin
-    tsPerdeu.TabVisible := False;
     lblJogadorGanhou.Caption := VDados.Jogador;
     edtQtdeGanhouPontos.Text := VDados.PontosJogador.ToString;
   end
-  else
+  else if VDados.GanhouPerdeu = gpPerdeu then
   begin
-    tsGanhou.TabVisible := False;
     lblJogadorPerdeu.Caption := VDados.Jogador;
     edtPerdeuPontos.Text := VDados.PontosJogador.ToString;
     edtPalavraCorreta.Text := VDados.PalavraCorreta;
+  end
+  else if VDados.GanhouPerdeu = gpVencedor then
+  begin
+    lblJogadorFinal.Caption := VDados.Jogador;
+    lblPontuacaoFinal.Caption := VDados.PontosJogador.ToString;
   end;
 
 end;

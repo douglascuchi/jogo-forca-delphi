@@ -25,10 +25,9 @@ object FormGanhouPerdeu: TFormGanhouPerdeu
     Top = 0
     Width = 298
     Height = 227
-    ActivePage = tsGanhou
+    ActivePage = tsFinal
     Align = alClient
     TabOrder = 0
-    ExplicitTop = -5
     object tsGanhou: TTabSheet
       Caption = 'Ganhou'
       object pnlGanhouBase: TPanel
@@ -41,7 +40,7 @@ object FormGanhouPerdeu: TFormGanhouPerdeu
         Color = 11927402
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = -2
+        ExplicitWidth = 298
         object lblMsgGanhouPontos: TLabel
           Left = 28
           Top = 163
@@ -220,6 +219,76 @@ object FormGanhouPerdeu: TFormGanhouPerdeu
         end
       end
     end
+    object tsFinal: TTabSheet
+      Caption = 'Vencedor'
+      ImageIndex = 2
+      object pnlBaseFinal: TPanel
+        Left = 0
+        Top = 0
+        Width = 290
+        Height = 199
+        Align = alClient
+        BevelOuter = bvNone
+        TabOrder = 0
+        ExplicitTop = -2
+        object lblJogadorFinal: TLabel
+          Left = 112
+          Top = 130
+          Width = 101
+          Height = 23
+          Caption = '*Jogador*'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object lblMsgPontosFinal: TLabel
+          Left = 22
+          Top = 159
+          Width = 92
+          Height = 19
+          Caption = 'Pontua'#231#227'o:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clMaroon
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object lblMsgJogadorFinal: TLabel
+          Left = 22
+          Top = 134
+          Width = 71
+          Height = 19
+          Caption = 'Jogador:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clMaroon
+          Font.Height = -16
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object lblPontuacaoFinal: TLabel
+          Left = 129
+          Top = 155
+          Width = 124
+          Height = 23
+          Caption = '*Pontua'#231#227'o*'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -19
+          Font.Name = 'Tahoma'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+      end
+    end
+    object tsEmpate: TTabSheet
+      Caption = 'Empate'
+      ImageIndex = 3
+    end
   end
   object pnlConfirmar: TPanel
     Left = 0
@@ -244,10 +313,6 @@ object FormGanhouPerdeu: TFormGanhouPerdeu
       ParentFont = False
       TabOrder = 0
       OnClick = btnContinuarClick
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitWidth = 296
-      ExplicitHeight = 39
     end
   end
 end

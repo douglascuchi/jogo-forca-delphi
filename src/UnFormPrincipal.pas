@@ -76,7 +76,8 @@ type
     Procedure Perdeu(AIdJogador: integer; SeChutou: Boolean);
     procedure ControlaCampos;
     procedure HabilitarBotoes;
-    procedure VerificaSeAcabou;
+    procedure FinalizaJogo;
+    function VerificaSeAcabou: Boolean;
   public
     vDadosConfig: ADadosConfig;
   end;
@@ -149,7 +150,9 @@ procedure TFormTelaJogo.novoJogo;
 begin
   JogadorAtual := StrToInt(IfThen((JogadorAtual = 2) or (JogadorAtual = 0),
     '1', '2'));
-  VerificaSeAcabou;
+  if VerificaSeAcabou then
+    exit;
+
   ControlaCampos;
   if JogadorAtual = 1 then
   begin
@@ -193,13 +196,46 @@ begin
     novoJogo;
 end;
 
-procedure TFormTelaJogo.VerificaSeAcabou;
+function TFormTelaJogo.VerificaSeAcabou: Boolean;
 begin
-  if (JogadorAtual = 1) and
-    (StrToInt(edtRodadas.Text) = vDadosConfig.QtdeRodadas) then
-    ShowMessage('acabou o jogo')
-  else if (JogadorAtual = 1) then
+  if (JogadorAtual = 1) then
+  begin
+    if StrToInt(edtRodadas.Text) = vDadosConfig.QtdeRodadas then
+    begin
+      FinalizaJogo;
+      exit;
+    end;
+
     edtRodadas.Text := IntToStr(StrToInt(edtRodadas.Text) + 1);
+  end;
+end;
+
+procedure TFormTelaJogo.FinalizaJogo;
+var
+  vDados: ADadosGanhouPerdeu;
+begin
+  vDados.GanhouPerdeu := gpVencedor;
+
+  if StrToInt(edtJogador1.Text) > StrToInt(edtJogador2.Text) then
+  begin
+    vDados.Jogador := vDadosConfig.NomeJogador[0];
+    vDados.PontosJogador := PontosJogador1;
+  end
+  else if StrToInt(edtJogador1.Text) < StrToInt(edtJogador2.Text) then
+  begin
+    vDados.Jogador := vDadosConfig.NomeJogador[1];
+    vDados.PontosJogador := PontosJogador2;
+  end
+  else
+  begin
+    vDados.Jogador := '';
+    vDados.PontosJogador := PontosJogador1;
+    vDados.GanhouPerdeu := gpEmpate;
+  end;
+  vDados.PalavraCorreta := '';
+
+  if TFormGanhouPerdeu.Exibir(vDados) then
+    Self.Close;
 end;
 
 procedure TFormTelaJogo.FormShow(Sender: TObject);
