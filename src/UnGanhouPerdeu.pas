@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls,
-  Vcl.ExtCtrls;
+  Vcl.ExtCtrls, Vcl.Imaging.jpeg, Vcl.Imaging.pngimage;
 
 type
   TGanhouPerdeu = (gpGanhou, gpPerdeu, gpVencedor, gpEmpate);
@@ -29,8 +29,6 @@ type
     lblMsgPerdeuPlayer: TLabel;
     lblJogadorPerdeu: TLabel;
     lblMsgPerdeuPontos: TLabel;
-    edtPalavraCorreta: TEdit;
-    edtPerdeuPontos: TEdit;
     pnlBasePerdeu: TPanel;
     tsFinal: TTabSheet;
     pnlGanhouBase: TPanel;
@@ -39,13 +37,22 @@ type
     lblJogadorGanhou: TLabel;
     lblMsgGanhouParabens: TLabel;
     lblMsgGanhouPlayer: TLabel;
-    edtQtdeGanhouPontos: TEdit;
     pnlBaseFinal: TPanel;
     lblJogadorFinal: TLabel;
     lblMsgPontosFinal: TLabel;
     lblMsgJogadorFinal: TLabel;
     tsEmpate: TTabSheet;
     lblPontuacaoFinal: TLabel;
+    lblVitoria: TLabel;
+    Image1: TImage;
+    lblPalavraCorreta: TLabel;
+    Image2: TImage;
+    Image3: TImage;
+    lblQtdeGanhouPontos: TLabel;
+    lblPerdeuPontos: TLabel;
+    lblJogoEmpatou: TLabel;
+    Image4: TImage;
+    lblSeFodeu: TLabel;
     procedure btnContinuarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -92,13 +99,13 @@ begin
   if VDados.GanhouPerdeu = gpGanhou then
   begin
     lblJogadorGanhou.Caption := VDados.Jogador;
-    edtQtdeGanhouPontos.Text := VDados.PontosJogador.ToString;
+    lblQtdeGanhouPontos.Caption := VDados.PontosJogador.ToString;
   end
   else if VDados.GanhouPerdeu = gpPerdeu then
   begin
     lblJogadorPerdeu.Caption := VDados.Jogador;
-    edtPerdeuPontos.Text := VDados.PontosJogador.ToString;
-    edtPalavraCorreta.Text := VDados.PalavraCorreta;
+    lblPerdeuPontos.Caption := VDados.PontosJogador.ToString;
+    lblPalavraCorreta.Caption := VDados.PalavraCorreta;
   end
   else if VDados.GanhouPerdeu = gpVencedor then
   begin

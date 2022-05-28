@@ -54,10 +54,10 @@ type
     ckbExibirPalavra: TCheckBox;
     lblPontosJogador1: TLabel;
     lblPontosJogador2: TLabel;
-    edtRodadas: TEdit;
-    lblRodadas: TLabel;
+    lblMsgRodadas: TLabel;
     lblMsgTotalRodadas: TLabel;
     lblTotalRodadas: TLabel;
+    lblRodadas: TLabel;
     procedure FormShow(Sender: TObject);
     procedure btnAClick(Sender: TObject);
     procedure btnJogarClick(Sender: TObject);
@@ -157,12 +157,12 @@ begin
   if JogadorAtual = 1 then
   begin
     lblJogador1.Font.Color := clRed;
-    lblJogador2.Font.Color := clBlack;
+    lblJogador2.Font.Color := clWhite;
   end
   else
   begin
     lblJogador2.Font.Color := clRed;
-    lblJogador1.Font.Color := clBlack;
+    lblJogador1.Font.Color := clWhite;
   end;
 end;
 
@@ -200,13 +200,13 @@ function TFormTelaJogo.VerificaSeAcabou: Boolean;
 begin
   if (JogadorAtual = 1) then
   begin
-    if StrToInt(edtRodadas.Text) = vDadosConfig.QtdeRodadas then
+    if StrToInt(lblRodadas.Caption) = vDadosConfig.QtdeRodadas then
     begin
       FinalizaJogo;
       exit;
     end;
 
-    edtRodadas.Text := IntToStr(StrToInt(edtRodadas.Text) + 1);
+    lblRodadas.Caption := IntToStr(StrToInt(lblRodadas.Caption) + 1);
   end;
 end;
 
@@ -244,7 +244,7 @@ begin
   lblJogador1.Caption := vDadosConfig.NomeJogador[0];
   lblJogador2.Caption := vDadosConfig.NomeJogador[1];
   lblTotalRodadas.Caption := vDadosConfig.QtdeRodadas.ToString;
-  edtRodadas.Text := '0';
+  lblRodadas.Caption := '0';
   novoJogo;
 end;
 
@@ -329,26 +329,26 @@ begin
   case contErros of
     1:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\cabeca.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\cabeca.png');
     2:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\corpo.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\corpo.png');
     3:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\braco-esq.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\braco-esq.png');
     4:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\dois-bracos.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\dois-bracos.png');
     5:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\perna-esq.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\perna-esq.png');
     6:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\game-forca\jogo-forca-delphi\img\completo.png');
+        ('C:\jogo-forca\jogo-forca-delphi\img\completo.png');
   end;
 
-  edtChutarPalavra.Enabled := countLetrasFaltando >= 3;
-  btnChutarPalavra.Enabled := countLetrasFaltando >= 3;
+  edtChutarPalavra.Visible := countLetrasFaltando >= 4;
+  btnChutarPalavra.Visible := countLetrasFaltando >= 4;
 
   if contErros = 6 then
     Perdeu(JogadorAtual, false)
@@ -378,7 +378,7 @@ begin
     GuardaResultado[i] := '';
 
   imgBonecoForca.Picture.LoadFromFile
-    ('C:\game-forca\jogo-forca-delphi\img\nada.png');
+    ('C:\jogo-forca\jogo-forca-delphi\img\nada.png');
   edtPalavraSecreta.SetFocus;
 
 end;

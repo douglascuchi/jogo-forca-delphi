@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, UnConfig, UnFormPrincipal,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.ImageList, Vcl.ImgList,
-  Vcl.StdCtrls, Vcl.Buttons, Vcl.Imaging.jpeg, Vcl.ExtCtrls;
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.Imaging.jpeg, Vcl.ExtCtrls, UnSobre;
 
 type
   TFormInicial = class(TForm)
@@ -20,10 +20,10 @@ type
     procedure btnFecharClick(Sender: TObject);
     procedure btnConfiguracaoClick(Sender: TObject);
     procedure btnJogarClick(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     vConfig: ADadosConfig;
   public
-    class procedure Exibir;
   end;
 
 var
@@ -46,7 +46,12 @@ begin
     FreeAndNil(vForm2);
   end;
 end;
-                                                            s
+
+procedure TFormInicial.SpeedButton3Click(Sender: TObject);
+begin
+  FormSobre.ShowModal;
+end;
+
 procedure TFormInicial.btnFecharClick(Sender: TObject);
 begin
   FormInicial.Close;

@@ -3855,15 +3855,15 @@ object FormTelaJogo: TFormTelaJogo
       ExplicitLeft = -1
     end
     object btnJogar: TSpeedButton
-      Left = 545
+      Left = 529
       Top = 137
-      Width = 78
-      Height = 30
+      Width = 87
+      Height = 38
       Caption = 'JOGAR'
       Font.Charset = ANSI_CHARSET
       Font.Color = clRed
       Font.Height = -21
-      Font.Name = 'Courier New'
+      Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnJogarClick
@@ -3877,119 +3877,144 @@ object FormTelaJogo: TFormTelaJogo
     end
     object btnChutarPalavra: TSpeedButton
       Left = 453
-      Top = 439
-      Width = 90
-      Height = 30
+      Top = 431
+      Width = 100
+      Height = 38
       Caption = 'CHUTAR'
       Font.Charset = ANSI_CHARSET
       Font.Color = clRed
       Font.Height = -21
-      Font.Name = 'Courier New'
+      Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
       ParentFont = False
       OnClick = btnChutarPalavraClick
     end
     object lblJogador1: TLabel
       Left = 14
-      Top = 35
-      Width = 90
-      Height = 18
+      Top = 30
+      Width = 76
+      Height = 21
       Caption = 'Jogador 1'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
-      Font.Name = 'Courier New'
+      Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
       ParentFont = False
     end
     object lblJogador2: TLabel
       Left = 14
-      Top = 81
-      Width = 90
-      Height = 18
+      Top = 76
+      Width = 78
+      Height = 21
       Caption = 'Jogador 2'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
-      Font.Name = 'Courier New'
+      Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
       ParentFont = False
     end
     object lblPlacar: TLabel
       Left = 14
-      Top = 2
-      Width = 84
-      Height = 27
+      Top = -2
+      Width = 71
+      Height = 32
       Caption = 'Placar'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clPurple
       Font.Height = -24
-      Font.Name = 'Courier New'
+      Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
       ParentFont = False
     end
     object lblPontosJogador1: TLabel
       Left = 53
       Top = 55
-      Width = 48
-      Height = 16
+      Width = 43
+      Height = 17
       Caption = 'pontos'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
-      Font.Name = 'Courier New'
+      Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
       ParentFont = False
     end
     object lblPontosJogador2: TLabel
       Left = 53
       Top = 101
-      Width = 48
-      Height = 16
+      Width = 43
+      Height = 17
       Caption = 'pontos'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
-      Font.Name = 'Courier New'
+      Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object lblRodadas: TLabel
+    object lblMsgRodadas: TLabel
       Left = 635
       Top = 53
-      Width = 130
-      Height = 18
+      Width = 108
+      Height = 21
       Caption = 'Rodada atual:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
-      Font.Name = 'Courier New'
+      Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
       ParentFont = False
     end
     object lblMsgTotalRodadas: TLabel
       Left = 635
-      Top = 19
-      Width = 85
-      Height = 13
-      Caption = 'Total de rodadas:'
+      Top = 29
+      Width = 92
+      Height = 21
+      Caption = 'N'#186' rodadas:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI Black'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lblTotalRodadas: TLabel
-      Left = 726
-      Top = 19
-      Width = 54
-      Height = 13
-      Caption = '**Rodadas'
+      Left = 735
+      Top = 30
+      Width = 8
+      Height = 21
+      Caption = '*'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clRed
+      Font.Height = -16
+      Font.Name = 'Segoe UI Black'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lblRodadas: TLabel
+      Left = 751
+      Top = 54
+      Width = 8
+      Height = 21
+      Caption = '*'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clRed
+      Font.Height = -16
+      Font.Name = 'Segoe UI Black'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object edtJogador1: TEdit
       Left = 14
       Top = 52
       Width = 38
-      Height = 24
+      Height = 25
       Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clRed
       Font.Height = -13
-      Font.Name = 'Courier New'
+      Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
@@ -3999,38 +4024,35 @@ object FormTelaJogo: TFormTelaJogo
       Left = 14
       Top = 98
       Width = 38
-      Height = 24
+      Height = 25
       Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
+      Font.Color = clRed
       Font.Height = -13
-      Font.Name = 'Courier New'
+      Font.Name = 'Segoe UI Black'
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 1
       Text = '0'
     end
     object ckbExibirPalavra: TCheckBox
-      Left = 380
-      Top = 169
-      Width = 97
+      Left = 363
+      Top = 176
+      Width = 113
       Height = 17
       Caption = 'Exibir palavra'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clNavy
+      Font.Height = -13
+      Font.Name = 'Segoe UI Black'
+      Font.Style = [fsBold]
+      ParentFont = False
       TabOrder = 2
       OnClick = ckbExibirPalavraClick
     end
-    object edtRodadas: TEdit
-      Left = 635
-      Top = 71
-      Width = 54
-      Height = 21
-      ReadOnly = True
-      TabOrder = 3
-      Text = 'edtRodadas'
-    end
   end
   object edtPalavra: TEdit
-    Left = 213
-    Top = 472
+    Left = 181
+    Top = 474
     Width = 441
     Height = 36
     BevelOuter = bvNone
@@ -4039,29 +4061,30 @@ object FormTelaJogo: TFormTelaJogo
     Font.Charset = ANSI_CHARSET
     Font.Color = clRed
     Font.Height = -29
-    Font.Name = 'Courier New'
+    Font.Name = 'Segoe UI Black'
     Font.Style = [fsBold]
     ParentFont = False
     ReadOnly = True
     TabOrder = 1
   end
   object edtPalavraSecreta: TEdit
-    Left = 375
+    Left = 363
     Top = 137
     Width = 164
-    Height = 30
+    Height = 38
+    BorderStyle = bsNone
     CharCase = ecUpperCase
     Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -19
-    Font.Name = 'Courier New'
+    Font.Color = clRed
+    Font.Height = -21
+    Font.Name = 'Segoe UI Black'
     Font.Style = [fsBold]
     ParentFont = False
     PasswordChar = '*'
     TabOrder = 2
   end
   object pnlLetras: TPanel
-    Left = 182
+    Left = 175
     Top = 8
     Width = 441
     Height = 113
@@ -4463,14 +4486,15 @@ object FormTelaJogo: TFormTelaJogo
   end
   object edtChutarPalavra: TEdit
     Left = 258
-    Top = 439
+    Top = 431
     Width = 194
-    Height = 30
+    Height = 38
+    BorderStyle = bsNone
     CharCase = ecUpperCase
     Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -19
-    Font.Name = 'Courier New'
+    Font.Color = clRed
+    Font.Height = -21
+    Font.Name = 'Segoe UI Black'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 4

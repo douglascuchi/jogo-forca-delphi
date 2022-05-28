@@ -1352,6 +1352,7 @@ object FormInicial: TFormInicial
     Font.Name = 'System'
     Font.Style = [fsBold]
     ParentFont = False
+    OnClick = SpeedButton3Click
   end
   object btnFechar: TButton
     Left = 490
