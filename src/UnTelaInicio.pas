@@ -10,19 +10,19 @@ uses
 
 type
   TFormInicial = class(TForm)
-    Image1: TImage;
-    Label1: TLabel;
-    FORCA: TLabel;
+    ImgBase: TImage;
+    lblJogoDa: TLabel;
+    lblForca: TLabel;
     btnFechar: TButton;
     btnJogar: TSpeedButton;
     btnConfiguracao: TSpeedButton;
-    SpeedButton3: TSpeedButton;
+    btnSobre: TSpeedButton;
     procedure btnFecharClick(Sender: TObject);
     procedure btnConfiguracaoClick(Sender: TObject);
     procedure btnJogarClick(Sender: TObject);
-    procedure SpeedButton3Click(Sender: TObject);
+    procedure btnSobreClick(Sender: TObject);
   private
-    vConfig: ADadosConfig;
+    GConfig: TDadosConfig;
   public
   end;
 
@@ -35,19 +35,19 @@ implementation
 
 procedure TFormInicial.btnJogarClick(Sender: TObject);
 var
-  vForm2: TFormTelaJogo;
+  LForm2: TFormTelaJogo;
 begin
-  vForm2 := TFormTelaJogo.Create(nil);
+  LForm2 := TFormTelaJogo.Create(nil);
   try
-    vForm2.vDadosConfig.NomeJogador := vConfig.NomeJogador;
-    vForm2.vDadosConfig.QtdeRodadas := vConfig.QtdeRodadas;
-    vForm2.ShowModal;
+    LForm2.GDadosConfig.NomeJogador := GConfig.NomeJogador;
+    LForm2.GDadosConfig.QtdeRodadas := GConfig.QtdeRodadas;
+    LForm2.ShowModal;
   finally
-    FreeAndNil(vForm2);
+    FreeAndNil(LForm2);
   end;
 end;
 
-procedure TFormInicial.SpeedButton3Click(Sender: TObject);
+procedure TFormInicial.btnSobreClick(Sender: TObject);
 begin
   FormSobre.ShowModal;
 end;
@@ -59,8 +59,8 @@ end;
 
 procedure TFormInicial.btnConfiguracaoClick(Sender: TObject);
 begin
-  vConfig := TFormConfig.Exibir;
-  btnJogar.Visible := vConfig.Ok;
+  GConfig := TFormConfig.Exibir;
+  btnJogar.Visible := GConfig.Ok;
 end;
 
 end.

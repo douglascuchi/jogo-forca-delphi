@@ -8,7 +8,7 @@ uses
 
 type
   TFormSobre = class(TForm)
-    Memo1: TMemo;
+    mmoSobre: TMemo;
   private
     { Private declarations }
   public

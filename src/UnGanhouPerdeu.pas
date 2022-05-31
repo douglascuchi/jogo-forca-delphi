@@ -44,20 +44,19 @@ type
     tsEmpate: TTabSheet;
     lblPontuacaoFinal: TLabel;
     lblVitoria: TLabel;
-    Image1: TImage;
+    ImgBasePerdeu: TImage;
     lblPalavraCorreta: TLabel;
-    Image2: TImage;
+    ImgBaseGanhou: TImage;
     Image3: TImage;
     lblQtdeGanhouPontos: TLabel;
     lblPerdeuPontos: TLabel;
     lblJogoEmpatou: TLabel;
-    Image4: TImage;
+    ImgBaseEmpate: TImage;
     lblSeFodeu: TLabel;
     procedure btnContinuarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
-    { Private declarations }
-    VDados: ADadosGanhouPerdeu;
+    GDados: ADadosGanhouPerdeu;
   public
     class function Exibir(ADados: ADadosGanhouPerdeu): Boolean;
   end;
@@ -77,40 +76,40 @@ end;
 
 class function TFormGanhouPerdeu.Exibir(ADados: ADadosGanhouPerdeu): Boolean;
 var
-  vForm: TFormGanhouPerdeu;
+  LForm: TFormGanhouPerdeu;
 begin
-  vForm := TFormGanhouPerdeu.Create(nil);
+  LForm := TFormGanhouPerdeu.Create(nil);
   try
-    vForm.VDados := ADados;
-    if vForm.ShowModal = mrOk then
+    LForm.GDados := ADados;
+    if LForm.ShowModal = mrOk then
       Result := True;
   finally
-    FreeAndNil(vForm);
+    FreeAndNil(LForm);
   end;
 end;
 
 procedure TFormGanhouPerdeu.FormShow(Sender: TObject);
 begin
-  tsPerdeu.TabVisible := VDados.GanhouPerdeu = gpPerdeu;
-  tsFinal.TabVisible := VDados.GanhouPerdeu = gpVencedor;
-  tsGanhou.TabVisible := VDados.GanhouPerdeu = gpGanhou;
-  tsEmpate.TabVisible := VDados.GanhouPerdeu = gpEmpate;
+  tsPerdeu.TabVisible := GDados.GanhouPerdeu = gpPerdeu;
+  tsFinal.TabVisible := GDados.GanhouPerdeu = gpVencedor;
+  tsGanhou.TabVisible := GDados.GanhouPerdeu = gpGanhou;
+  tsEmpate.TabVisible := GDados.GanhouPerdeu = gpEmpate;
 
-  if VDados.GanhouPerdeu = gpGanhou then
+  if GDados.GanhouPerdeu = gpGanhou then
   begin
-    lblJogadorGanhou.Caption := VDados.Jogador;
-    lblQtdeGanhouPontos.Caption := VDados.PontosJogador.ToString;
+    lblJogadorGanhou.Caption := GDados.Jogador;
+    lblQtdeGanhouPontos.Caption := GDados.PontosJogador.ToString;
   end
-  else if VDados.GanhouPerdeu = gpPerdeu then
+  else if GDados.GanhouPerdeu = gpPerdeu then
   begin
-    lblJogadorPerdeu.Caption := VDados.Jogador;
-    lblPerdeuPontos.Caption := VDados.PontosJogador.ToString;
-    lblPalavraCorreta.Caption := VDados.PalavraCorreta;
+    lblJogadorPerdeu.Caption := GDados.Jogador;
+    lblPerdeuPontos.Caption := GDados.PontosJogador.ToString;
+    lblPalavraCorreta.Caption := GDados.PalavraCorreta;
   end
-  else if VDados.GanhouPerdeu = gpVencedor then
+  else if GDados.GanhouPerdeu = gpVencedor then
   begin
-    lblJogadorFinal.Caption := VDados.Jogador;
-    lblPontuacaoFinal.Caption := VDados.PontosJogador.ToString;
+    lblJogadorFinal.Caption := GDados.Jogador;
+    lblPontuacaoFinal.Caption := GDados.PontosJogador.ToString;
   end;
 
 end;

@@ -64,12 +64,12 @@ type
     procedure btnChutarPalavraClick(Sender: TObject);
     procedure ckbExibirPalavraClick(Sender: TObject);
   private
-    Palavra: array [1 .. 25] of string;
-    GuardaResultado: array [1 .. 25] of string;
-    contErros: integer;
-    PontosJogador1: integer;
-    PontosJogador2: integer;
-    JogadorAtual: integer;
+    GPalavra: array [1 .. 25] of string;
+    GGuardaResultado: array [1 .. 25] of string;
+    GCountErros: integer;
+    GPontosJogador1: integer;
+    GPontosJogador2: integer;
+    GJogadorAtual: integer;
     Procedure ComparaResultado(letra: string);
     Procedure novoJogo;
     Procedure Ganhou(AIdJogador: integer; SeChutou: Boolean);
@@ -79,7 +79,7 @@ type
     procedure FinalizaJogo;
     function VerificaSeAcabou: Boolean;
   public
-    vDadosConfig: ADadosConfig;
+    GDadosConfig: TDadosConfig;
   end;
 
 var
@@ -101,11 +101,11 @@ procedure TFormTelaJogo.btnChutarPalavraClick(Sender: TObject);
 begin
   if (edtPalavraSecreta.Text = edtChutarPalavra.Text) then
   begin
-    Ganhou(JogadorAtual, true);
+    Ganhou(GJogadorAtual, true);
     edtPalavra.Text := edtPalavraSecreta.Text;
   end
   else if not(edtPalavraSecreta.Text = edtChutarPalavra.Text) then
-    Perdeu(JogadorAtual, true);
+    Perdeu(GJogadorAtual, true);
 end;
 
 procedure TFormTelaJogo.btnJogarClick(Sender: TObject);
@@ -133,7 +133,7 @@ begin
 
   for i := 1 to Length(edtPalavraSecreta.Text) do
   begin
-    Palavra[i] := copy(edtPalavraSecreta.Text, i, 1);
+    GPalavra[i] := copy(edtPalavraSecreta.Text, i, 1);
     edtPalavra.Text := edtPalavra.Text + '* ';
   end;
 end;
@@ -148,13 +148,13 @@ end;
 
 procedure TFormTelaJogo.novoJogo;
 begin
-  JogadorAtual := StrToInt(IfThen((JogadorAtual = 2) or (JogadorAtual = 0),
+  GJogadorAtual := StrToInt(IfThen((GJogadorAtual = 2) or (GJogadorAtual = 0),
     '1', '2'));
   if VerificaSeAcabou then
     exit;
 
   ControlaCampos;
-  if JogadorAtual = 1 then
+  if GJogadorAtual = 1 then
   begin
     lblJogador1.Font.Color := clRed;
     lblJogador2.Font.Color := clWhite;
@@ -168,39 +168,39 @@ end;
 
 procedure TFormTelaJogo.Perdeu(AIdJogador: integer; SeChutou: Boolean);
 var
-  vPontos: integer;
-  vDados: ADadosGanhouPerdeu;
+  LPontos: integer;
+  LDados: ADadosGanhouPerdeu;
 begin
   if SeChutou then
-    vPontos := 100
+    LPontos := 100
   else
-    vPontos := 50;
+    LPontos := 50;
   if AIdJogador = 1 then
   begin
-    PontosJogador1 := PontosJogador1 - vPontos;
-    edtJogador1.Text := IntToStr(PontosJogador1);
+    GPontosJogador1 := GPontosJogador1 - LPontos;
+    edtJogador1.Text := IntToStr(GPontosJogador1);
   end
   else
   begin
-    PontosJogador2 := PontosJogador2 - vPontos;
-    edtJogador2.Text := IntToStr(PontosJogador2);
+    GPontosJogador2 := GPontosJogador2 - LPontos;
+    edtJogador2.Text := IntToStr(GPontosJogador2);
   end;
-  vDados.Jogador := vDadosConfig.NomeJogador[JogadorAtual - 1];
-  if JogadorAtual = 1 then
-    vDados.PontosJogador := PontosJogador1
+  LDados.Jogador := GDadosConfig.NomeJogador[GJogadorAtual - 1];
+  if GJogadorAtual = 1 then
+    LDados.PontosJogador := GPontosJogador1
   else
-    vDados.PontosJogador := PontosJogador2;
-  vDados.GanhouPerdeu := gpPerdeu;
-  vDados.PalavraCorreta := edtPalavraSecreta.Text;
-  if TFormGanhouPerdeu.Exibir(vDados) then
+    LDados.PontosJogador := GPontosJogador2;
+  LDados.GanhouPerdeu := gpPerdeu;
+  LDados.PalavraCorreta := edtPalavraSecreta.Text;
+  if TFormGanhouPerdeu.Exibir(LDados) then
     novoJogo;
 end;
 
 function TFormTelaJogo.VerificaSeAcabou: Boolean;
 begin
-  if (JogadorAtual = 1) then
+  if (GJogadorAtual = 1) then
   begin
-    if StrToInt(lblRodadas.Caption) = vDadosConfig.QtdeRodadas then
+    if StrToInt(lblRodadas.Caption) = GDadosConfig.QtdeRodadas then
     begin
       FinalizaJogo;
       exit;
@@ -212,74 +212,74 @@ end;
 
 procedure TFormTelaJogo.FinalizaJogo;
 var
-  vDados: ADadosGanhouPerdeu;
+  LDados: ADadosGanhouPerdeu;
 begin
-  vDados.GanhouPerdeu := gpVencedor;
+  LDados.GanhouPerdeu := gpVencedor;
 
   if StrToInt(edtJogador1.Text) > StrToInt(edtJogador2.Text) then
   begin
-    vDados.Jogador := vDadosConfig.NomeJogador[0];
-    vDados.PontosJogador := PontosJogador1;
+    LDados.Jogador := GDadosConfig.NomeJogador[0];
+    LDados.PontosJogador := GPontosJogador1;
   end
   else if StrToInt(edtJogador1.Text) < StrToInt(edtJogador2.Text) then
   begin
-    vDados.Jogador := vDadosConfig.NomeJogador[1];
-    vDados.PontosJogador := PontosJogador2;
+    LDados.Jogador := GDadosConfig.NomeJogador[1];
+    LDados.PontosJogador := GPontosJogador2;
   end
   else
   begin
-    vDados.Jogador := '';
-    vDados.PontosJogador := PontosJogador1;
-    vDados.GanhouPerdeu := gpEmpate;
+    LDados.Jogador := '';
+    LDados.PontosJogador := GPontosJogador1;
+    LDados.GanhouPerdeu := gpEmpate;
   end;
-  vDados.PalavraCorreta := '';
+  LDados.PalavraCorreta := '';
 
-  if TFormGanhouPerdeu.Exibir(vDados) then
+  if TFormGanhouPerdeu.Exibir(LDados) then
     Self.Close;
 end;
 
 procedure TFormTelaJogo.FormShow(Sender: TObject);
 begin
-  JogadorAtual := 0;
-  lblJogador1.Caption := vDadosConfig.NomeJogador[0];
-  lblJogador2.Caption := vDadosConfig.NomeJogador[1];
-  lblTotalRodadas.Caption := vDadosConfig.QtdeRodadas.ToString;
+  GJogadorAtual := 0;
+  lblJogador1.Caption := GDadosConfig.NomeJogador[0];
+  lblJogador2.Caption := GDadosConfig.NomeJogador[1];
+  lblTotalRodadas.Caption := GDadosConfig.QtdeRodadas.ToString;
   lblRodadas.Caption := '0';
   novoJogo;
 end;
 
 procedure TFormTelaJogo.Ganhou(AIdJogador: integer; SeChutou: Boolean);
 var
-  vPontos: integer;
-  vDados: ADadosGanhouPerdeu;
+  LPontos: integer;
+  LDados: ADadosGanhouPerdeu;
 begin
   if SeChutou then
-    vPontos := 150
+    LPontos := 150
   else
   begin
-    vPontos := 100;
-    vPontos := vPontos - (10 * (contErros));
+    LPontos := 100;
+    LPontos := LPontos - (10 * (GCountErros));
   end;
 
   if AIdJogador = 1 then
   begin
-    PontosJogador1 := PontosJogador1 + vPontos;
-    edtJogador1.Text := IntToStr(PontosJogador1);
+    GPontosJogador1 := GPontosJogador1 + LPontos;
+    edtJogador1.Text := IntToStr(GPontosJogador1);
   end
   else
   begin
-    PontosJogador2 := PontosJogador2 + vPontos;
-    edtJogador2.Text := IntToStr(PontosJogador2);
+    GPontosJogador2 := GPontosJogador2 + LPontos;
+    edtJogador2.Text := IntToStr(GPontosJogador2);
   end;
 
-  vDados.Jogador := vDadosConfig.NomeJogador[JogadorAtual - 1];
-  if JogadorAtual = 1 then
-    vDados.PontosJogador := PontosJogador1
+  LDados.Jogador := GDadosConfig.NomeJogador[GJogadorAtual - 1];
+  if GJogadorAtual = 1 then
+    LDados.PontosJogador := GPontosJogador1
   else
-    vDados.PontosJogador := PontosJogador2;
-  vDados.GanhouPerdeu := gpGanhou;
+    LDados.PontosJogador := GPontosJogador2;
+  LDados.GanhouPerdeu := gpGanhou;
 
-  if TFormGanhouPerdeu.Exibir(vDados) then
+  if TFormGanhouPerdeu.Exibir(LDados) then
     novoJogo;
 end;
 
@@ -296,37 +296,38 @@ end;
 
 Procedure TFormTelaJogo.ComparaResultado(letra: String);
 var
-  i: integer;
-  achou: Boolean;
-  countLetrasFaltando: integer;
+  LCount: integer;
+  LAchou: Boolean;
+  LCountLetrasFaltando: integer;
 begin
-  achou := false;
-  countLetrasFaltando := 0;
+  LAchou := false;
+  LCountLetrasFaltando := 0;
 
-  for i := 1 to Length(edtPalavraSecreta.Text) do
+  for LCount := 1 to Length(edtPalavraSecreta.Text) do
   begin
-    If (Palavra[i] = letra) then
+    If (GPalavra[LCount] = letra) then
     begin
-      GuardaResultado[i] := letra;
-      achou := true;
+      GGuardaResultado[LCount] := letra;
+      LAchou := true;
     end
-    else if (GuardaResultado[i] = '') or (GuardaResultado[i] = '* ') then
-      GuardaResultado[i] := '*'
+    else if (GGuardaResultado[LCount] = '') or (GGuardaResultado[LCount] = '* ')
+    then
+      GGuardaResultado[LCount] := '*'
   end;
 
-  if achou = false then
-    contErros := contErros + 1;
+  if LAchou = false then
+    GCountErros := GCountErros + 1;
 
   edtPalavra.Text := '';
 
-  for i := 1 to Length(edtPalavraSecreta.Text) do
+  for LCount := 1 to Length(edtPalavraSecreta.Text) do
   begin
-    edtPalavra.Text := edtPalavra.Text + GuardaResultado[i];
-    if GuardaResultado[i] = '*' then
-      countLetrasFaltando := countLetrasFaltando + 1;
+    edtPalavra.Text := edtPalavra.Text + GGuardaResultado[LCount];
+    if GGuardaResultado[LCount] = '*' then
+      LCountLetrasFaltando := LCountLetrasFaltando + 1;
   end;
 
-  case contErros of
+  case GCountErros of
     1:
       imgBonecoForca.Picture.LoadFromFile
         ('C:\jogo-forca\jogo-forca-delphi\img\cabeca.png');
@@ -347,13 +348,13 @@ begin
         ('C:\jogo-forca\jogo-forca-delphi\img\completo.png');
   end;
 
-  edtChutarPalavra.Visible := countLetrasFaltando >= 4;
-  btnChutarPalavra.Visible := countLetrasFaltando >= 4;
+  edtChutarPalavra.Visible := LCountLetrasFaltando >= 4;
+  btnChutarPalavra.Visible := LCountLetrasFaltando >= 4;
 
-  if contErros = 6 then
-    Perdeu(JogadorAtual, false)
-  else if countLetrasFaltando = 0 then
-    Ganhou(JogadorAtual, false);
+  if GCountErros = 6 then
+    Perdeu(GJogadorAtual, false)
+  else if LCountLetrasFaltando = 0 then
+    Ganhou(GJogadorAtual, false);
 end;
 
 procedure TFormTelaJogo.ControlaCampos;
@@ -371,11 +372,11 @@ begin
   edtPalavraSecreta.Clear;
   edtChutarPalavra.Clear;
   edtPalavra.Clear;
-  contErros := 0;
+  GCountErros := 0;
   HabilitarBotoes;
 
-  for i := 0 to Length(GuardaResultado) do
-    GuardaResultado[i] := '';
+  for i := 0 to Length(GGuardaResultado) do
+    GGuardaResultado[i] := '';
 
   imgBonecoForca.Picture.LoadFromFile
     ('C:\jogo-forca\jogo-forca-delphi\img\nada.png');

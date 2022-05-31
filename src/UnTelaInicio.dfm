@@ -17,7 +17,7 @@ object FormInicial: TFormInicial
   Position = poDesktopCenter
   PixelsPerInch = 96
   TextHeight = 13
-  object Image1: TImage
+  object ImgBase: TImage
     Left = 0
     Top = 0
     Width = 563
@@ -1282,7 +1282,7 @@ object FormInicial: TFormInicial
     ExplicitWidth = 105
     ExplicitHeight = 105
   end
-  object Label1: TLabel
+  object lblJogoDa: TLabel
     Left = 96
     Top = 21
     Width = 295
@@ -1295,7 +1295,7 @@ object FormInicial: TFormInicial
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object FORCA: TLabel
+  object lblForca: TLabel
     Left = 230
     Top = 104
     Width = 225
@@ -1339,7 +1339,7 @@ object FormInicial: TFormInicial
     ParentFont = False
     OnClick = btnConfiguracaoClick
   end
-  object SpeedButton3: TSpeedButton
+  object btnSobre: TSpeedButton
     Left = 208
     Top = 310
     Width = 137
@@ -1352,7 +1352,7 @@ object FormInicial: TFormInicial
     Font.Name = 'System'
     Font.Style = [fsBold]
     ParentFont = False
-    OnClick = SpeedButton3Click
+    OnClick = btnSobreClick
   end
   object btnFechar: TButton
     Left = 490

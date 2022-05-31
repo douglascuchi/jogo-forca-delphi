@@ -4109,7 +4109,7 @@ object FormTelaJogo: TFormTelaJogo
       OnClick = btnAClick
     end
     object btnB: TSpeedButton
-      Left = 228
+      Left = 239
       Top = 78
       Width = 38
       Height = 29
@@ -4124,7 +4124,7 @@ object FormTelaJogo: TFormTelaJogo
       OnClick = btnAClick
     end
     object btnC: TSpeedButton
-      Left = 140
+      Left = 151
       Top = 78
       Width = 38
       Height = 29
@@ -4274,7 +4274,7 @@ object FormTelaJogo: TFormTelaJogo
       OnClick = btnAClick
     end
     object btnM: TSpeedButton
-      Left = 316
+      Left = 327
       Top = 78
       Width = 38
       Height = 29
@@ -4289,7 +4289,7 @@ object FormTelaJogo: TFormTelaJogo
       OnClick = btnAClick
     end
     object btnN: TSpeedButton
-      Left = 272
+      Left = 283
       Top = 78
       Width = 38
       Height = 29
@@ -4394,7 +4394,7 @@ object FormTelaJogo: TFormTelaJogo
       OnClick = btnAClick
     end
     object btnV: TSpeedButton
-      Left = 184
+      Left = 195
       Top = 78
       Width = 38
       Height = 29
@@ -4424,7 +4424,7 @@ object FormTelaJogo: TFormTelaJogo
       OnClick = btnAClick
     end
     object btnX: TSpeedButton
-      Left = 96
+      Left = 107
       Top = 78
       Width = 38
       Height = 29
@@ -4454,7 +4454,7 @@ object FormTelaJogo: TFormTelaJogo
       OnClick = btnAClick
     end
     object btnZ: TSpeedButton
-      Left = 59
+      Left = 70
       Top = 78
       Width = 31
       Height = 29

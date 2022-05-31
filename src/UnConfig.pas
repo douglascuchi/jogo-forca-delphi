@@ -9,7 +9,7 @@ uses
   Vcl.Imaging.pngimage;
 
 type
-  ADadosConfig = record
+  TDadosConfig = record
     Ok: Boolean;
     NomeJogador: array [0 .. 1] of string;
     QtdeRodadas: Integer;
@@ -25,16 +25,13 @@ type
     edtQtdeRodadas: TEdit;
     btnConfirmar: TButton;
     btnCancelar: TButton;
-    Image1: TImage;
+    ImgBase: TImage;
     procedure btnConfirmarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
-    procedure edtJogador1Exit(Sender: TObject);
-    procedure edtJogador2Exit(Sender: TObject);
-    procedure edtQtdeRodadasExit(Sender: TObject);
   private
-    VDados: ADadosConfig;
+    GDados: TDadosConfig;
   public
-    class function Exibir: ADadosConfig;
+    class function Exibir: TDadosConfig;
   end;
 
 var
@@ -51,42 +48,38 @@ end;
 
 procedure TFormConfig.btnConfirmarClick(Sender: TObject);
 begin
+  if (edtQtdeRodadas.Text = '') or (edtJogador1.Text = '') or
+    (edtJogador2.Text = '') then
+  begin
+    MessageDlg('Todos os campos são obrigatórios!', TMsgDlgType.mtWarning,
+      mbOKCancel, 0);
+    Abort
+  end;
+
   ModalResult := mrOk;
+  GDados.NomeJogador[0] := edtJogador1.Text;
+  GDados.NomeJogador[1] := edtJogador2.Text;
+  GDados.QtdeRodadas := StrToInt(edtQtdeRodadas.Text);
 end;
 
-procedure TFormConfig.edtJogador1Exit(Sender: TObject);
-begin
-  VDados.NomeJogador[0] := edtJogador1.Text;
-end;
-
-procedure TFormConfig.edtJogador2Exit(Sender: TObject);
-begin
-  VDados.NomeJogador[1] := edtJogador2.Text;
-end;
-
-procedure TFormConfig.edtQtdeRodadasExit(Sender: TObject);
-begin
-  VDados.QtdeRodadas := StrToInt(edtQtdeRodadas.Text);
-end;
-
-class function TFormConfig.Exibir: ADadosConfig;
+class function TFormConfig.Exibir: TDadosConfig;
 var
-  vForm: TFormConfig;
+  LForm: TFormConfig;
 begin
-  vForm := TFormConfig.Create(nil);
+  LForm := TFormConfig.Create(nil);
   try
-    if vForm.ShowModal = mrOk then
+    if LForm.ShowModal = mrOk then
     begin
-      vForm.VDados.Ok := True;
-      Result := vForm.VDados;
+      LForm.GDados.Ok := True;
+      Result := LForm.GDados;
     end
-    else if vForm.ShowModal = mrNo then
+    else if LForm.ShowModal = mrNo then
     begin
-      vForm.VDados.Ok := False;
-      Result := vForm.VDados;
+      LForm.GDados.Ok := False;
+      Result := LForm.GDados;
     end;
   finally
-    FreeAndNil(vForm);
+    FreeAndNil(LForm);
   end;
 end;
 

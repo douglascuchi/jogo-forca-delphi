@@ -23,7 +23,7 @@ object FormConfig: TFormConfig
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    object Image1: TImage
+    object ImgBase: TImage
       Left = 0
       Top = 0
       Width = 340
@@ -3533,6 +3533,7 @@ object FormConfig: TFormConfig
       Height = 30
       BorderStyle = bsNone
       CharCase = ecUpperCase
+      Color = clGradientActiveCaption
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
@@ -3540,7 +3541,6 @@ object FormConfig: TFormConfig
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
-      OnExit = edtJogador1Exit
     end
     object edtJogador2: TEdit
       Left = 101
@@ -3549,6 +3549,7 @@ object FormConfig: TFormConfig
       Height = 30
       BorderStyle = bsNone
       CharCase = ecUpperCase
+      Color = clGradientActiveCaption
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
@@ -3556,7 +3557,6 @@ object FormConfig: TFormConfig
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 1
-      OnExit = edtJogador2Exit
     end
     object edtQtdeRodadas: TEdit
       Left = 101
@@ -3566,6 +3566,7 @@ object FormConfig: TFormConfig
       BevelInner = bvNone
       BevelOuter = bvNone
       BorderStyle = bsNone
+      Color = clGradientActiveCaption
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -19
@@ -3574,7 +3575,6 @@ object FormConfig: TFormConfig
       NumbersOnly = True
       ParentFont = False
       TabOrder = 2
-      OnExit = edtQtdeRodadasExit
     end
     object btnConfirmar: TButton
       Left = 40

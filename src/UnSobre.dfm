@@ -4,7 +4,7 @@ object FormSobre: TFormSobre
   Caption = 'Jogo da forca'
   ClientHeight = 605
   ClientWidth = 513
-  Color = clBtnFace
+  Color = clBlue
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -14,14 +14,15 @@ object FormSobre: TFormSobre
   Position = poDesktopCenter
   PixelsPerInch = 96
   TextHeight = 13
-  object Memo1: TMemo
+  object mmoSobre: TMemo
     Left = 0
     Top = 0
     Width = 513
     Height = 605
     Align = alClient
+    Color = clHotLight
     Font.Charset = ANSI_CHARSET
-    Font.Color = clBlack
+    Font.Color = clWhite
     Font.Height = -13
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]

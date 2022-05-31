@@ -25,7 +25,7 @@ object FormGanhouPerdeu: TFormGanhouPerdeu
     Top = 0
     Width = 298
     Height = 227
-    ActivePage = tsEmpate
+    ActivePage = tsPerdeu
     Align = alClient
     TabOrder = 0
     object tsGanhou: TTabSheet
@@ -40,7 +40,7 @@ object FormGanhouPerdeu: TFormGanhouPerdeu
         Color = 11927402
         ParentBackground = False
         TabOrder = 0
-        object Image2: TImage
+        object ImgBaseGanhou: TImage
           Left = 0
           Top = 0
           Width = 290
@@ -345,7 +345,7 @@ object FormGanhouPerdeu: TFormGanhouPerdeu
         Color = 3947775
         ParentBackground = False
         TabOrder = 0
-        object Image1: TImage
+        object ImgBasePerdeu: TImage
           Left = 0
           Top = 0
           Width = 290
@@ -2740,7 +2740,7 @@ object FormGanhouPerdeu: TFormGanhouPerdeu
     object tsEmpate: TTabSheet
       Caption = 'Empate'
       ImageIndex = 3
-      object Image4: TImage
+      object ImgBaseEmpate: TImage
         Left = 0
         Top = 0
         Width = 290
