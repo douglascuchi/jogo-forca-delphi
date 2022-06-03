@@ -56,10 +56,10 @@ begin
     Abort
   end;
 
-  ModalResult := mrOk;
   GDados.NomeJogador[0] := edtJogador1.Text;
   GDados.NomeJogador[1] := edtJogador2.Text;
   GDados.QtdeRodadas := StrToInt(edtQtdeRodadas.Text);
+  ModalResult := mrOk;
 end;
 
 class function TFormConfig.Exibir: TDadosConfig;
@@ -73,7 +73,7 @@ begin
       LForm.GDados.Ok := True;
       Result := LForm.GDados;
     end
-    else if LForm.ShowModal = mrNo then
+    else
     begin
       LForm.GDados.Ok := False;
       Result := LForm.GDados;
