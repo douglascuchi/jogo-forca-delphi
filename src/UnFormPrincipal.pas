@@ -134,7 +134,7 @@ begin
   for i := 1 to Length(edtPalavraSecreta.Text) do
   begin
     GPalavra[i] := copy(edtPalavraSecreta.Text, i, 1);
-    edtPalavra.Text := edtPalavra.Text + '* ';
+    edtPalavra.Text := edtPalavra.Text + '*';
   end;
 end;
 
@@ -310,8 +310,7 @@ begin
       GGuardaResultado[LCount] := letra;
       LAchou := true;
     end
-    else if (GGuardaResultado[LCount] = '') or (GGuardaResultado[LCount] = '* ')
-    then
+    else if (GGuardaResultado[LCount] = '') then
       GGuardaResultado[LCount] := '*'
   end;
 
@@ -330,22 +329,22 @@ begin
   case GCountErros of
     1:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\cabeca.png');
+        ('C:\game-forca\jogo-forca-delphi\img\cabeca.png');
     2:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\corpo.png');
+        ('C:\game-forca\jogo-forca-delphi\img\corpo.png');
     3:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\braco-esq.png');
+        ('C:\game-forca\jogo-forca-delphi\img\braco-esq.png');
     4:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\dois-bracos.png');
+        ('C:\game-forca\jogo-forca-delphi\img\dois-bracos.png');
     5:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\perna-esq.png');
+        ('C:\game-forca\jogo-forca-delphi\img\perna-esq.png');
     6:
       imgBonecoForca.Picture.LoadFromFile
-        ('C:\jogo-forca\jogo-forca-delphi\img\completo.png');
+        ('C:\game-forca\jogo-forca-delphi\img\completo.png');
   end;
 
   edtChutarPalavra.Visible := LCountLetrasFaltando >= 4;
@@ -379,7 +378,7 @@ begin
     GGuardaResultado[i] := '';
 
   imgBonecoForca.Picture.LoadFromFile
-    ('C:\jogo-forca\jogo-forca-delphi\img\nada.png');
+    ('C:\game-forca\jogo-forca-delphi\img\nada.png');
   edtPalavraSecreta.SetFocus;
 
 end;

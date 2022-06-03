@@ -3,7 +3,7 @@ object FormSobre: TFormSobre
   Top = 0
   Caption = 'Jogo da forca'
   ClientHeight = 605
-  ClientWidth = 513
+  ClientWidth = 553
   Color = clBlue
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object FormSobre: TFormSobre
   object mmoSobre: TMemo
     Left = 0
     Top = 0
-    Width = 513
+    Width = 553
     Height = 605
     Align = alClient
     Color = clHotLight
@@ -72,19 +72,50 @@ object FormSobre: TFormSobre
         'ganha mais pontos que o normal e se errar perde mais pontos que ' +
         'o normal.'
       ''
-      'A vez de cada jogador adivinhar a palavra termina ou com,'
       
-        'o acerto da palavra ou com, o t'#233'rmino do preenchimento das parte' +
-        's'
-      'corp'#243'reas do enforcado.'
+        'A vez de cada jogador adivinhar a palavra termina com o acerto d' +
+        'a palavra '
+      
+        'ou com, o t'#233'rmino do preenchimento das partes corp'#243'reas do enfor' +
+        'cado.'
       ''
-      'A partidai termina ao fim do n'#250'mero de rodadas escolhidas'
+      
+        'Em rela'#231#227'o a contagem dos pontos, n'#227'o utilizando a fun'#231#227'o de chu' +
+        'tar, o padr'#227'o '
+      
+        'de pontos quando acerta a palavra '#233' de +100, descontando desses ' +
+        'pontos -10, '
+      
+        'para cada parte do corpo perdida. Se o mesmo errar a palavra n'#227'o' +
+        ' chutando, '
+      'a pontua'#231#227'o base fixa '#233' de -50 pontos.'
+      ''
+      
+        'Quando falamos na op'#231#227'o de chutar, o mesmo estar'#225' habilitado som' +
+        'ente quando '
+      
+        'faltar 4 ou mais letras para descobrir na palavra secreta. Na op' +
+        #231#227'o de chutar,'
+      
+        'se acaso ocorrer o imprevisto de n'#227'o acertar a palavra, a pontua' +
+        #231#227'o base fixa'
+      
+        'de perda '#233' de -100 pontos, em contrapartida se houver acerto, a ' +
+        'pontua'#231#227'o'
+      
+        #233' fixada para +150 pontos, n'#227'o levando em considera'#231#227'o as partes' +
+        ' do corpo '
+      'perdidas.'
+      ''
+      'A partida termina ao fim do n'#250'mero de rodadas escolhidas'
       
         'nas configura'#231#245'es, sendo assim, o jogador que estiver com mais p' +
         'ontos ganha,'
       'tamb'#233'm tendo a possibilidade de empatar.')
     ParentFont = False
     ReadOnly = True
+    ScrollBars = ssVertical
     TabOrder = 0
+    ExplicitWidth = 513
   end
 end
